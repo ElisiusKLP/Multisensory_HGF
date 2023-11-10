@@ -20,19 +20,14 @@ Simulate distributions of states and actions for an agent, with parameters sampl
 - 'alpha::Real = 0.1': the transparency of each simulated trajectory line.
 - 'linewidth::Real = 2': specify linewidth on your plot.
 """
-function plot_predictive_simulation(
+function predictive_simulation(
     param_distributions::Union{Chains,Dict},
     agent::Agent,
     inputs::Array,
     target_state::Union{String,Tuple};
     fixed_parameters::Dict = Dict(),
     n_simulations::Int = 100,
-    verbose::Bool = true,
-    median_color::Union{String,Symbol} = :red,
-    title::String = "Sampled trajectories",
-    label::Union{String,Tuple} = target_state,
-    alpha::Real = 0.1,
-    linewidth::Real = 2,
+    verbose::Bool = true
 )
 
     ### Setup ###
@@ -66,50 +61,24 @@ function plot_predictive_simulation(
     #Initialize counter for number of rejected samples
     n_rejected_samples = 0
 
-    while simulation_number <= n_simulations
+    # Initialize a dictionary to store all sampled parameters
+    all_sampled_parameters = Dict(param_key => [] for param_key in keys(param_distributions))
 
+    while simulation_number <= n_simulations
+        
+        sampled_parameters = Dict()
         #Try to run the simulation and plot it
         try
-            #Create empty tuple for populating with sampled parameter values
-            sampled_parameters = Dict()
 
-            #For each specified parameter 
+            #create empty tuple for populating with sampled parameter values
             for (param_key, param_distribution) in param_distributions
-                #Add a sampled parameter value to the dict
-                sampled_parameters[param_key] = rand(param_distribution)
+                # Sample a parameter value
+                sampled_value = rand(param_distribution)
+                # Add the sampled parameter value to the dict
+                sampled_parameters[param_key] = sampled_value
+                # Store the sampled parameter value
+                push!(all_sampled_parameters[param_key], sampled_value)
             end
-
-            #Set parameters
-            set_parameters!(agent, sampled_parameters)
-            reset!(agent)
-
-            #Evolve agent
-            give_inputs!(agent, inputs)
-
-            #For the first simulation
-            if simulation_number == 1
-                #Initialize the trajectory plot
-                plot_trajectory(
-                    agent,
-                    target_state;
-                    color = :gray,
-                    alpha = alpha,
-                    label = "",
-                    title = title,
-                )
-                #For other simulations
-            else
-                #Add trajectories to the same plot
-                plot_trajectory!(
-                    agent,
-                    target_state;
-                    color = :gray,
-                    alpha = alpha,
-                    label = "",
-                    title = title,
-                )
-            end
-
             #Advance the simulation counter
             simulation_number += 1
 
@@ -131,6 +100,7 @@ function plot_predictive_simulation(
                 throw(e)
             end
         end
+
     end
 
     #If all samples were rejected
@@ -147,57 +117,30 @@ function plot_predictive_simulation(
         @warn "$n_rejected_samples out of $n_simulations sampled parameters were rejected"
     end
 
-    ### Plot simulation with parameter medians ###
-    #Create empty list for parameter medians
-    param_medians = Dict()
-
-    #For each specified parameter 
-    for (param_key, param_distribution) in param_distributions
-        #Add a sampled parameter value to the dict
-        param_medians[param_key] = median(param_distribution)
-    end
+    params_medians = Dict(param_key => median(values) for (param_key, values) in all_sampled_parameters)
 
     #Set parameters
-    set_parameters!(agent, param_medians)
+    set_parameters!(agent, params_medians)
     reset!(agent)
 
-    #Look for errors
-    try
-        #Evolve agent
-        give_inputs!(agent, inputs)
-        #If there is an error
-    catch e
-        #If it is a PaeramError
-        if e isa RejectParameters
-            throw(
-                RejectParameters(
-                    "Evolving the agent with the medians of the parameter distributions resulted in numerical errors. Try different parameter distributions",
-                ),
-            )
-        else
-            throw(e)
-        end
-    end
+    #Evolve agent
+    give_inputs!(agent, inputs)
 
-    #If the label is a composite state
-    if label isa Tuple
-        #Join it into a string
-        label = join(label, " ")
-    end
-
-    #Plot the median
-    plot = plot_trajectory!(
-        agent,
-        target_state;
-        color = median_color,
-        label = label,
-        title = title,
-        linewidth = linewidth,
-    )
+    #Get the target state
+    target_state_history = get_history(agent, target_state)
+    predictions = target_state_history[2:end]
 
     #Reset agent to old settings
     set_parameters!(agent, old_parameters)
     reset!(agent)
 
-    return plot
+    return predictions, all_sampled_parameters, params_medians
 end
+
+actions_pred, samples, medians = predictive_simulation(
+    results,
+    agent,
+    inputs,
+    ("action");
+    n_simulations = 5
+)

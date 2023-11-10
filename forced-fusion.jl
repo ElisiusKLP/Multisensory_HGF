@@ -68,10 +68,6 @@ agent = init_agent(
     substruct = hgf,
 )
 
-reset!(agent)
-get_parameters(hgf)
-set_parameters!(agent, agent_parameters)
-
 priors = Dict(
     ("V", "evolution_rate") => Normal(-2, 1),
     ("A", "evolution_rate") => Normal(-2, 1),
@@ -95,6 +91,7 @@ println(inputs[1:10])
 
 # Feeding the agent with inputs to generate some actions
 
+reset!(agent)
 give_inputs!(agent, inputs)
 
 plot_trajectory(agent, "A")
@@ -104,20 +101,31 @@ plot_trajectory!(agent, "action")
 
 action_history = get_history(agent, "action")
 
-get_parameters(agent)
+action_history = action_history[2:1001]
 
+init_params = get_parameters(agent)
+
+get_history(agent, "")
 # FITTING MODEL from scratch
-reset!(agent)
+
 
 results = fit_model(
     agent,
     priors,
     inputs,
-    actions
+    action_history,
+    n_cores = 2,
 )
 
 
 plot(results)
+
+x = get_posteriors(results, type = "median")
+x["V", "evolution_rate"]
+
+get_parameters(hgf)
+get_parameters(agent)
+ActionModels.get_parameters(agent)
 
 CSV.write("", results) ## write csv
 
@@ -144,15 +152,17 @@ results
 
 plot_parameter_distribution(results, priors)
 
-plot_parameter_distribution(results, )
+plot_parameter_distribution(results)
 
 plot_predictive_simulation(
     priors,
     agent,
     inputs,
-    ("A");
+    ("location", "posterior_mean");
     n_simulations = 3
 )
+
+plot_trajectory!(agent, "A")
 
 plot_predictive_simulation(
     results,
@@ -162,13 +172,114 @@ plot_predictive_simulation(
     n_simulations = 3
 )
 
-# Synthesizing input and action data from fitted parameters
+plot_trajectory!(agent, "action")
 
-results
+give_inputs!(agent, inputs)
+reset!(agent)
 
-get_parameters(results)
+plot_trajectory(agent, "action")
+
+# Parameter recovery
+
+## create a list of two lists for each parameter which we want to test
+A_er = [-5,-2,0,2]
+V_er = [-5,-2,0,2]
+
+# create a list of all possible combinations of the parameters
+combinations = collect(Iterators.product(A_er, V_er))
+
+# flatten the matrix of combinations into a list of n=2 vectors
+param_combs = combinations[:]
+
+# create an empty dicitonary to save the median parameters of each model fit
+posterior_medians = Dict()
+
+for i in param_combs
+
+    v_rate = i[1]
+    a_rate = i[2]
+
+    set_parameters!(agent, Dict(
+        ("V", "evolution_rate") => v_rate,
+        ("A", "evolution_rate") => a_rate,
+    ))
+
+    key = string("V_",v_rate, "_A_", a_rate)
+
+    z = 1
+
+    while z <= 200 # number of iterations (could change to n if function)
+        reset!(agent)
+
+        give_inputs!(agent, inputs)
+
+        action_history = get_history(agent, "action")
+
+        action_history = action_history[2:1001]
+        
+        result = fit_model(
+            agent,
+            priors,
+            inputs,
+            action_history,
+            n_cores = 2,
+            n_iterations = 1000,
+            n_chains = 4,
+        )
+
+        post_median = get_posteriors(result, type = "median")
+
+        if key in keys(posterior_medians)
+            push!(posterior_medians[key], post_median)
+        else
+            posterior_medians[key] = post_median
+        end
+
+        z += 1
+    end
+end
+
+key = string("V_",v_rate, "_A_", a_rate)
+post_median = get_posteriors(results, type = "median")
+if key in keys(posterior_medians)
+    push!(posterior_medians[key], post_median)
+else
+    posterior_medians[key] = post_median
+end
+
+posterior_medians
+# Creating a modified plot_predictive_simulation function which has a boolean argument to output the synthetic data
 
 get_parameters(hgf)
+get_parameters(agent)
+
+histogram(actions_pred)
+histogram!(action_history)
+histogram(samples["V", "evolution_rate"])
+histogram(samples["A", "evolution_rate"])
+medians["V", "evolution_rate"]
+medians["A", "evolution_rate"]
+
+histogram(actions_pred)
+histogram!(action_history)
+
+# creating a new fitted model with the new action data
+
+results2 = fit_model(
+    agent,
+    priors,
+    inputs,
+    actions_pred
+)
+
+# Synthesizing input and action data from fitted parameters
+
+results2
+
+plot_parameter_distribution(results2, priors)
+
+
+get_parameters(agent)
 
 results
 results[1,1,2]
@@ -205,6 +316,12 @@ end
 
 # Create predictions from an already existing dataset
 
+synthetic_results = fit_model(
+    agent,
+    priors,
+    inputs,
+    action_history
+)
 
 
 predictions = Turing.predict(
