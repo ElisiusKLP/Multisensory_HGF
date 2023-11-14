@@ -247,27 +247,15 @@ for i in param_combs
     end
 end
 
-v_rate = -5
-a_rate = -2
-
 key = string("V_",v_rate, "_A_", a_rate)
 post_median = get_posteriors(results, type = "median")
-post_median
-post_median_V = post_median["V", "evolution_rate"]
-post_median_A = post_median["A", "evolution_rate"]
-init_params
-
 if key in keys(posterior_medians)
-    push!(posterior_medians[key][("V", "evolution_rate")], post_median_V)
-    push!(posterior_medians[key][("A", "evolution_rate")], post_median_A)
+    push!(posterior_medians[key], post_median)
 else
-    posterior_medians[key] = Dict(
-        ("V", "evolution_rate") => [post_median_V],
-        ("A", "evolution_rate") => [post_median_A],
-    )
+    posterior_medians[key] = post_median
 end
 
-posterior_medians[key][("V", "evolution_rate")]
+posterior_medians
 # Creating a modified plot_predictive_simulation function which has a boolean argument to output the synthetic data
 
 get_parameters(hgf)
