@@ -3,8 +3,8 @@ Creating Forced-Fusion model with HGF.
 Feeding with random (no patterns) simulated data/locations.
 
 Trying to conduct parameter recovery.
-
 """
+
 # Packages
 using DataFrames, CSV, TimeSeries, Serialization
 using Distributions
@@ -82,7 +82,7 @@ agent = init_agent(
 )
 
 priors = Dict(
-    ("V", "evolution_rate") => Normal(-2, 1),
+    ("V", "evolution_rate") => Normal(-1, 1),
     ("A", "evolution_rate") => Normal(-2, 1),
 )
 
@@ -107,8 +107,8 @@ println(inputs[1:10])
 # [-5, -2, 0, 2]
 ## i eventually want to create a list of all possible combinations of the parameters
 ## right now testing a 2x2 combination of parameters
-A_er = [-5,-2]
-V_er = [-5,-2]
+A_er = [-5]
+V_er = [0]
 
 # create a list of all possible combinations of the parameters
 combinations = collect(Iterators.product(A_er, V_er))
@@ -118,59 +118,6 @@ param_combs = combinations[:]
 
 # create an empty dicitonary to save the median parameters of each model fit
 posterior_medians = Dict()
-
-
-## TESTING FIT WITH parralelization
-
-set_parameters!(agent, Dict(
-        ("V", "evolution_rate") => -5,
-        ("A", "evolution_rate") => 0,
-    ))
-
-reset!(agent)
-
-give_inputs!(agent, inputs)
-
-action_history = get_history(agent, "action")
-
-action_history = action_history[2:1001]
-
-result = fit_model(
-        agent,
-        priors,
-        inputs,
-        action_history,
-        n_cores = 2,
-        n_iterations = 1000,
-        n_chains = 2,
-    )
-end
-
-# With this method i can retrieve the median from all chains 
-# and save them in a dictionary with the key being the parameter combination
-
-get_posteriors(result[:,:,2], type = "median")
-
-## i have not tested this but its a start
-## require that n_chains is defined as an integer
-## waiting to hear from peter
-for chain in n_chains
-    post_median = get_posteriors(result[:,:,chain], type = "median")
-
-    post_median_V = post_median["V", "evolution_rate"]
-    post_median_A = post_median["A", "evolution_rate"]
-
-    if key in keys(posterior_medians)
-        push!(posterior_medians[key][("V", "evolution_rate")], post_median_V)
-        push!(posterior_medians[key][("A", "evolution_rate")], post_median_A)
-    else
-        posterior_medians[key] = Dict(
-            ("V", "evolution_rate") => [post_median_V],
-            ("A", "evolution_rate") => [post_median_A],
-        )
-    end
-    z += n_chains
-end
 
 
 for i in param_combs
@@ -187,7 +134,7 @@ for i in param_combs
 
     z = 1
 
-    while z <= 2 # number of iterations (could change to n if function)
+    while z <= 1 # number of iterations (could change to n if function)
         reset!(agent)
 
         give_inputs!(agent, inputs)
@@ -222,5 +169,72 @@ for i in param_combs
         end
 
         z += 1
+
+        println("Param Comb: $key")
+        println("Fitting round: $z")
+        println("This is current round post_median: $post_median")
+        println("Updated posterior_medians: $posterior_medians")
     end
 end
+
+posterior_medians
+df = DataFrame(posterior_medians)
+df
+csv_path = "parameter_recovery.csv"
+CSV.write(csv_path, df)
+println("Saved to ", csv_path)
+
+
+### EXTRAS
+
+## TESTING FIT WITH parralelization
+
+#= set_parameters!(agent, Dict(
+        ("V", "evolution_rate") => -5,
+        ("A", "evolution_rate") => 0,
+    ))
+
+reset!(agent)
+
+give_inputs!(agent, inputs)
+
+action_history = get_history(agent, "action")
+
+action_history = action_history[2:1001]
+
+result = fit_model(
+        agent,
+        priors,
+        inputs,
+        action_history,
+        n_cores = 2,
+        n_iterations = 1000,
+        n_chains = 2,
+    )
+end =#
+
+# With this method i can retrieve the median from all chains 
+# and save them in a dictionary with the key being the parameter combination
+
+#= get_posteriors(result[:,:,2], type = "median") =#
+
+## i have not tested this but its a start
+## require that n_chains is defined as an integer
+## waiting to hear from peter
+#= for chain in n_chains
+    post_median = get_posteriors(result[:,:,chain], type = "median")
+
+    post_median_V = post_median["V", "evolution_rate"]
+    post_median_A = post_median["A", "evolution_rate"]
+
+    if key in keys(posterior_medians)
+        push!(posterior_medians[key][("V", "evolution_rate")], post_median_V)
+        push!(posterior_medians[key][("A", "evolution_rate")], post_median_A)
+    else
+        posterior_medians[key] = Dict(
+            ("V", "evolution_rate") => [post_median_V],
+            ("A", "evolution_rate") => [post_median_A],
+        )
+    end
+    z += n_chains
+end =#
