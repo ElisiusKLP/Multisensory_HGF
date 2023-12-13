@@ -69,11 +69,16 @@ agent = init_agent(
 )
 
 priors = Dict(
-    ("V", "evolution_rate") => Normal(-2, 1),
-    ("A", "evolution_rate") => Normal(-2, 1),
+    ("V", "input_noise") => Normal(-2, 1),
+    ("A", "input_noise") => Normal(-2, 1),
+    "action_noise" => LogNormal(0,0.2),
 )
 
 
+x = LogNormal(0,0.2)
+plot(x)
+
+get_parameters(agent)
 # Creating a simulation of five spatial locations similar to ventriliquist experiments
 ## Define the discrete values
 
@@ -98,6 +103,7 @@ plot_trajectory(agent, "A")
 plot_trajectory!(agent, "V")
 plot_trajectory!(agent, "location")
 plot_trajectory!(agent, "action")
+
 
 action_history = get_history(agent, "action")
 

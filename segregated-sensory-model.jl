@@ -1,5 +1,5 @@
 """
-Creating Forced-Fusion model with HGF.
+Creating Segregated model with HGF.
 Feeding with random (no patterns) simulated data/locations.
 
 Trying to conduct parameter recovery.
@@ -15,26 +15,29 @@ using CategoricalArrays
 
 
 #List of input nodes to create
-input_nodes = [Dict(
-
-    "name" => "A",
-), Dict("name" => "V",)]
+input_nodes = [
+    Dict(
+    "name" => "X_A",
+), Dict("name" => "X_V",)]
 
 #List of state nodes to create
 state_nodes = [
     Dict(
-        "name" => "location",
-    ),
+        "name" => "S_A",
+    ), Dict(
+        "name" => "S_V",
+    )
 ]
+
 #List of child-parent relations
 edges = [
     Dict(
-        "child" => "A",
-        "value_parents" => ("location"),
+        "child" => "X_A",
+        "value_parents" => ("S_A"),
     ),
     Dict(
-        "child" => "V",
-        "value_parents" => ("location"),
+        "child" => "X_V",
+        "value_parents" => ("S_V"),
     ),
 ]
 #Initialize the HGF
@@ -47,14 +50,28 @@ hgf = init_hgf(
 get_parameters(hgf)
 
 function multisensory_hgf_action(agent::Agent, input)
+    auditory_stimulus = input[1]
+    visual_stimulus = input[2]
+    cue = input[3]
+    
     action_noise = agent.parameters["action_noise"]
     #Update hgf
     hgf = agent.substruct
-    update_hgf!(hgf, input)
-    #get out inferred location
-    inferred_location = get_states(hgf, ("location", "posterior_mean"))
-    #Create action distribution
-    action_distribution = Normal(inferred_location, action_noise)
+
+    update_hgf!(hgf, [auditory_stimulus, visual_stimulus])
+
+    if cue == "auditory"
+
+        inferred_position = get_states(hgf, ("S_A", "posterior_mean"))
+
+    else if cue == "visual"
+
+        inferred_ppsition = get_states(hgf, ("S_V", "posterior_mean"))
+
+    end
+    
+    action_distribution = Normal(inferred_position, action_noise)
+
     return action_distribution
 end
 
@@ -69,8 +86,8 @@ agent = init_agent(
 )
 
 priors = Dict(
-    ("V", "evolution_rate") => Normal(-2, 1),
-    ("A", "evolution_rate") => Normal(-2, 1),
+    ("X_V", "input_noise") => Normal(-2, 1),
+    ("X_A", "input_noise") => Normal(-2, 1),
 )
 
 
@@ -92,7 +109,7 @@ println(inputs[1:10])
 # Feeding the agent with inputs to generate some actions
 
 reset!(agent)
-get_parameters(agent)
+print(get_parameters(agent))
 set_parameters!(
     agent,
     Dict(
@@ -103,16 +120,22 @@ set_parameters!(
 get_parameters(agent)
 give_inputs!(agent, inputs)
 
-plot_trajectory(agent, "A")
-plot_trajectory!(agent, "V")
-plot_trajectory!(agent, "location")
-plot_trajectory!(agent, "action")
+plot_trajectory(agent, "X_A")
+plot_trajectory!(agent, "X_V")
+plot_trajectory!(agent, "S_A")
+plot_trajectory!(agent, "S_V")
+plot_trajectory!(agent, series) # Somethings wrong here
 
 action_history = get_history(agent, "action")
 
 action_history = action_history[2:1001]
 
 init_params = get_parameters(agent)
+
+# I can create an array or times series object to convert in to the right format but maybe this has to be done in
+series = [([i for i in 1:length(action_history)], [x[1] for x in action_history], [x[2] for x in action_history])]
+
+series
 
 get_history(agent, "")
 # FITTING MODEL from scratch
