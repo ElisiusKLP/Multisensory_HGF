@@ -46,7 +46,7 @@ hgf = init_hgf(
 
 get_parameters(hgf)
 
-function multisensory_hgf_action(agent::Agent, input)
+function ff_multisensory_hgf_action(agent::Agent, input)
     action_noise = agent.parameters["action_noise"]
     #Update hgf
     hgf = agent.substruct
@@ -63,7 +63,7 @@ agent_parameters = Dict(
 )
 
 agent = init_agent(
-    multisensory_hgf_action,
+    ff_multisensory_hgf_action,
     parameters = agent_parameters,
     substruct = hgf,
 )

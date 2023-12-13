@@ -70,10 +70,10 @@ fit_model()
 
 
 
-
-
-
-
+"""
+Creating the BCI in action models framework
+without using a HGF substruct 
+"""
 
 #Common, independent
 # prior for common: P_common
@@ -82,7 +82,7 @@ fit_model()
 # Gaussian(mean_AV, sigP) 
 
 
-#PArametrs: 
+#Parameters: 
 # p_common - prior for Common or not
 # muP - centrality bias
 # sigP - position variability from 0
@@ -100,25 +100,47 @@ fit_model()
 # xV
 
 
+# I dont know if i need to convert the sigmas to variances
 
+original_action_model = function(agent::Agent, input)
 
-original_action_model = function(agent, inputs)
-    auditoryinput[1]
-    visual_stimulus
-    cue
- 
+    if length(input) == 3
+        auditory_stimulus = input[1]
+        visual_stimulus = input[2]
+        cue = input[3]
+    else
+        auditory_stimulus = input[1]
+        visual_stimulus = input[2]
+        cue = constant_cue
+    end
+
+    #Get parameters
+    p_common = agent.parameters["p_common"]
+    muP = agent.parameters["muP"]
+    sigP = agent.parameters["sigP"]
+    sigA = agent.parameters["sigA"]
+    sigV = agent.parameters["sigV"]
+
+    # variances
+    varP = sigP^2
+    varA = sigA^2
+    varV = sigV^2
+
+    # variances of estimates given common or independent (aller & noppeney multiply by the varP for AV)
 
     #Udregn S_A og S_V
     # både for common og ikke common
-    S_AV_if_common = EQ4 # everything is either observations or parameters
+    S_AV_if_common = ( (auditory_stimulus / varA) + (visual_stimulus / varV) + ( muP / varP ) ) / ( ( 1 / varA) + ( 1 / varV) + ( 1 / varP) ) # everything is either observations or parameters
 
     S_A_if_common = S_AV_if_common
     S_V_if_common = S_AV_if_common
     
-    S_A_if_independent = EQ5
-    S_V_if_independent = EQ6
+    S_A_if_independent = ( (auditory_stimulus / varA) + ( muP / varP ) ) / ( ( 1 / varA) + ( 1 / varP) ) # everything is either observations or parameters
+    S_V_if_independent = ( (visual_stimulus / varV) + ( muP / varP ) ) / ( ( 1 / varV) + ( 1 / varP) ) # everything is either observations or parameters
     
-    
+    # udregn prob of common or independent
+    quad_common = 
+
     # Udregn p_c
     prob_obsA_if_common = pdf(obsA, normal(S_A_if_common, sigA))
     prob_obsV_if_common = pdf(obsV, normal(S_V_if_common, sigV))
@@ -136,24 +158,29 @@ original_action_model = function(agent, inputs)
     S_A_selected = (p_common > 0.5) * S_A_if_common + (p_common <= 0.5) * S_A_if_independent
     S_V_selected = (p_common > 0.5) * S_V_if_common + (p_common <= 0.5) * S_V_if_independent
 
+
     
 end
 
 original_params = Dict(
     #PArametrs: 
-    # p_common - prior for Common or not
-    # muP - centrality bias
-    # sigP - position variability from 0
-    # sigA - auditory noise
-    # sigV - visual noise
+    "p_commmon" => ,# p_common - prior for Common or not
+    "muP" => ,# muP - centrality bias
+    "sigP" => ,# sigP - position variability from 0
+    "sigA" => ,# sigA - auditory noise
+    "sigV" => ,# sigV - visual noise
 )
 
-original_states = Dict(
-    #States:
+#States:
 # C - whether common or not
 # S_AV - the shared position
 # S_A - the auditory position
 # S_V - the visual position
+original_states = Dict(
+    "name" => "C",
+    "name" => "S_AV",
+    "name" => "S_A",
+    "name" => "S_V"
 )
 
 agent = init_agent(
@@ -176,7 +203,8 @@ get_parameters(agent)
 
 
 
-----
+------
+"This is for the merging HGF"
 
 
 
@@ -187,6 +215,7 @@ forced_fusionc
 
 Independet
  #IND_S_V
+
 
 
 model_comp
