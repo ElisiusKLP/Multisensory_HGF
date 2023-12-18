@@ -13,63 +13,6 @@ using CategoricalArrays
 using Distributed # for parallelization
 
 
-# Simulate some data with four columns one locV, locA, respV, respA
-# 1000 rows
-# locV and locA are the locations of the visual and auditory stimuli
-# respV and respA are the responses to the visual and auditory stimuli
-# there should be locations: -22, -11, 0, 11, 22 for both locV and locA
-# there should be responses: 
-
-function simulate(n_trials, p_common, sigA, sigV, sigP)
-    
-    # locV and locA are the locations of the visual and auditory stimuli
-    # respV and respA are the responses to the visual and auditory stimuli
-    data = Dict(
-        :locV,
-        :locA,
-        :respV,
-        :respA,
-    )
-    
-
-    # P(C=1) is the prob of a common cause
-    for  in 1:1000:
-        c = Binomial(1, p_common)
-        C = rand(c)
-    
-        if C == 0
-            S_AV = Normal(0, sigP)
-            push!(data[:respA], S_AV)
-            push!(data[:respV], S_AV)
-
-        if C == 1
-            S_A = Normal(0, sigP)
-            S_V = Normal(0, sigP)
-            push!(data[:respA], S_A)
-            push!(data[:respV], S_V)
-
-        X_V = Normal(S_V, sigV)
-        X_A = Normal(S_A, sigA)
-        
-        push!(data[:locV], X_V)
-        push!(data[:locA], X_A)
-        
-    end
-
-end
-
-
-# simulate data
-simulate(1000, 0.5, 1, 1, 1)
-
-# run the BCI_fit_model script
-include("BCI_fit_model.jl")
-
-# run the fit_model function from BCI_fit_model script
-fit_model()
-
-
-
 """
 Creating the BCI in action models framework
 without using a HGF substruct 
@@ -102,7 +45,11 @@ without using a HGF substruct
 
 # I dont know if i need to convert the sigmas to variances
 
-original_action_model = function(agent::Agent, input)
+original_action_model = function(agent::Agent, input, constant_cue = "A", decision = "model_averaging")
+""" 
+constant_cue can be either "A" or "V" and is used to specify whether the cue is auditory or visual
+decision can be either "model_averaging" or "model_selection" and is used to specify whether the decision rule is model averaging or model selection
+"""
 
     if length(input) == 3
         auditory_stimulus = input[1]
@@ -121,54 +68,81 @@ original_action_model = function(agent::Agent, input)
     sigA = agent.parameters["sigA"]
     sigV = agent.parameters["sigV"]
 
-    # variances
+    # variances of A and V and prior
     varP = sigP^2
     varA = sigA^2
     varV = sigV^2
 
-    # variances of estimates given common or independent (aller & noppeney multiply by the varP for AV)
+    # variances of estimates given common or independent
+    #= varVA_hat = 1 / ( 1 / varV + 1 / varA + 1 / varP )
+    varV_hat = 1 / ( 1 / varV + 1 / varP )
+    varA_hat = 1 / ( 1 / varA + 1 / varP ) =#
+    # I drop this as it is just confusing code practice when realting it to the used equations in papers
 
-    #Udregn S_A og S_V
+    # variances used in computing probasbility of common or independent causes
+    var_common = varV * varA + varV * varP + varA * varP
+    varV_independent = varV + varP
+    varA_independent = varA + varP
+
+    # Calculate estimates sAV and sA and sV (forces fusion and segreated)
     # både for common og ikke common
-    S_AV_if_common = ( (auditory_stimulus / varA) + (visual_stimulus / varV) + ( muP / varP ) ) / ( ( 1 / varA) + ( 1 / varV) + ( 1 / varP) ) # everything is either observations or parameters
+    sAV_hat_if_common = ( (auditory_stimulus / varA) + (visual_stimulus / varV) + ( muP / varP ) ) / ( ( 1 / varA) + ( 1 / varV) + ( 1 / varP) ) # everything is either observations or parameters
 
-    S_A_if_common = S_AV_if_common
-    S_V_if_common = S_AV_if_common
+    sA_hat_if_common = sAV_hat_if_common
+    sV_hat_if_common = sAV_hat_if_common
     
     S_A_if_independent = ( (auditory_stimulus / varA) + ( muP / varP ) ) / ( ( 1 / varA) + ( 1 / varP) ) # everything is either observations or parameters
     S_V_if_independent = ( (visual_stimulus / varV) + ( muP / varP ) ) / ( ( 1 / varV) + ( 1 / varP) ) # everything is either observations or parameters
     
     # udregn prob of common or independent
-    quad_common = 
+    ## this is a weighted distance metric
+    #= quad_common = ( visual_stimulus - auditory_stimulus )^2 * varP + ( visual_stimulus - muP )^2 * varA + ( auditory_stimulus - muP )^2 * varV
+    quadV_independent = ( visual_stimulus - muP )^2
+    quadA_independent = ( auditory_stimulus - muP )^2 =#
 
-    # Udregn p_c
-    prob_obsA_if_common = pdf(obsA, normal(S_A_if_common, sigA))
-    prob_obsV_if_common = pdf(obsV, normal(S_V_if_common, sigV))
-    prob_obsA_obsV_if_common = prob_obsA_if_common * prob_obsV_if_common
-    
-    posterior_common = prob_obsA_obsV_if_common * prior_common / prob_obsA_obsV_general
-    
-    
-    # Weigh S_A og S_V med p_c (model averaging etc)
-    #Model averaging
-    S_A_averaged = p_common * S_A_if_common + (1 - p_common) * S_A_if_independent
-    S_V_averaged = p_common * S_V_if_common + (1 - p_common) * S_V_if_independent
-    
-    #Model selection
-    S_A_selected = (p_common > 0.5) * S_A_if_common + (p_common <= 0.5) * S_A_if_independent
-    S_V_selected = (p_common > 0.5) * S_V_if_common + (p_common <= 0.5) * S_V_if_independent
+    # likelihood of observations (xV, xA) given C (1=common or 2=independent)
+    ## this is the PDF
+    #= likelihood_common = exp(-quad_common/(2*var_common)) / (2*pi*sqrt(var_common))
+    likelihoodV_independent = exp(-quadV_independent/(2*varV_independent)) / sqrt(2*pi*varV_independent)
+    likelihoodA_independent = exp(-quadA_independent/(2*varA_independent)) / sqrt(2*pi*varA_independent)
+    likelihood_independent = likelihoodV_independent * likelihoodA_independent
+ =#
 
+    # this is multivariate normal pdf
+#= 
+    likelihood_common = pdf( MvNormal(zeros(3), [varV, varA, varP]), [visual_stimulus, auditory_stimulus, muP] )
+ =#
+
+    likelihood_common = pdf( Normal(0, var_common), sAV_hat_if_common )
+    likelihoodV_independent = pdf( Normal(0, varV_independent), S_V_if_independent )
+    likelihoodA_independent = pdf( Normal(0, varA_independent), S_A_if_independent )
+    likelihood_independent = likelihoodV_independent * likelihoodA_independent
+
+    # posterior probability of state C (cause 1 or 2) given observations (xV, xA)
+    posterior_common = likelihood_common * p_common
+    posterior_independent = likelihood_independent * (1 - p_common)
+    posterior_C = posterior_common / ( posterior_common + posterior_independent )
+    
+    # DECISION RULE
+    if decision == "model_averaging"
+        sV_hat = posterior_C * sV_hat_if_common + (1 - posterior_C) * S_V_if_independent
+        sA_hat = posterior_C * sA_hat_if_common + (1 - posterior_C) * S_A_if_independent
+    elseif decision == "model_selection"
+        sV_hat = (posterior_C > 0.5) * sV_hat_if_common + (posterior_C <= 0.5) * S_V_if_independent
+        sA_hat = (posterior_C > 0.5) * sA_hat_if_common + (posterior_C <= 0.5) * S_A_if_independent
+    end
 
     
+    return posterior_C, sV_hat, sA_hat
 end
 
 original_params = Dict(
     #PArametrs: 
-    "p_commmon" => ,# p_common - prior for Common or not
-    "muP" => ,# muP - centrality bias
-    "sigP" => ,# sigP - position variability from 0
-    "sigA" => ,# sigA - auditory noise
-    "sigV" => ,# sigV - visual noise
+    "p_common" => 1 ,# p_common - prior for Common or not
+    "muP" => 1,# muP - centrality bias
+    "sigP" => 1,# sigP - position variability from 0
+    "sigA" => 1,# sigA - auditory noise
+    "sigV" => 1,# sigV - visual noise
 )
 
 #States:
@@ -183,18 +157,43 @@ original_states = Dict(
     "name" => "S_V"
 )
 
+priors = Dict(
+    "p_common" => Normal(0,1),
+    "sigP" => Normal(0, 1),
+    "sigA" => Normal(0, 1),
+    "sigV" => Normal(0, 1),
+    "muP" => Normal(0, 1),
+)
+
 agent = init_agent(
     original_action_model,
     parameters = original_params,
     states = original_states
 )
 
-
 get_parameters(agent)
 
+# simulate some data
+values = [-22, -11, 0, 11, 22]
+## Number of samples
+num_samples = 1000
+## Generate samples
+actions = Array(rand(values, num_samples))
+## To view the first few samples
+println(actions[1:10])
+# Generate samples of vectors consisting of two values
+inputs = Array( [rand(values, 2) for _ in 1:num_samples] )
+# To view the first few samples
+println(inputs[1:10])
 
-
-
+# Fitting the model to the simulated data
+fit_model(
+    agent,
+    priors,
+    inputs,
+    actions,
+    n_iterations = 2000
+)
 
 
 
