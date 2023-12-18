@@ -1,9 +1,9 @@
 
 2+2
 
-using DataFrames, CSV, 
-using Distributions, 
-using Plots, StatsPlots, 
+using DataFrames, CSV
+using Distributions
+using Plots, StatsPlots
 using ActionModels, HierarchicalGaussianFiltering
 
 agent = premade_agent("binary_rw_softmax")
