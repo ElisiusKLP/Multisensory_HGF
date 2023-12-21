@@ -2,7 +2,7 @@
 
 julia_version = "1.9.3"
 manifest_format = "2.0"
-project_hash = "166ad016dc81ed237b47693c4f7d98bee3b40edb"
+project_hash = "6d965f27109377125456a400765db6d4e3e185e8"
 
 [[deps.ADTypes]]
 git-tree-sha1 = "332e5d7baeff8497b923b730b994fa480601efc7"
@@ -1238,9 +1238,9 @@ version = "0.10.2"
 
 [[deps.NNlib]]
 deps = ["Adapt", "Atomix", "ChainRulesCore", "GPUArraysCore", "KernelAbstractions", "LinearAlgebra", "Pkg", "Random", "Requires", "Statistics"]
-git-tree-sha1 = "ac86d2944bf7a670ac8bf0f7ec099b5898abcc09"
+git-tree-sha1 = "7c221293228506db2fe883251407581e0846688e"
 uuid = "872c559c-99b0-510c-b3b7-b6c96a88d5cd"
-version = "0.9.8"
+version = "0.9.9"
 
     [deps.NNlib.extensions]
     NNlibAMDGPUExt = "AMDGPU"

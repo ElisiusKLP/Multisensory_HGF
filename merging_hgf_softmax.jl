@@ -12,6 +12,7 @@ using ActionModels, HierarchicalGaussianFiltering
 using Turing
 using CategoricalArrays
 using ForwardDiff
+using NNlib
 
 "This is for the merging HGF"
 forced_fusion
@@ -36,29 +37,28 @@ init_hgf
 
 #List of input nodes to create
 input_nodes = [
-    Dict("name" => "xA"),
-    Dict("name" => "xV"),
+    Dict("name" => "FF_A"),
+    Dict("name" => "FF_V"),
+    Dict("name" => "Seg_A"),
+    Dict("name" => "Seg_V"),
 ]
 
 
 #List of state nodes to create
 state_nodes = [
     Dict("name" => "FF_sAV"),
-    Dict("name" => "Ind_sA"),
-    Dict("name" => "Ind_sV"),
-    Dict("name" => "xC"),
-    Dict("name" => "C"),
+    Dict("name" => "Seg_sA"),
+    Dict("name" => "Seg_sV"),
 ]
 
 edges = [
     # Forced fusion
-    Dict("child" => "xA", "value_parents" => ("FF_sAV")),
-    Dict("child" => "xV", "value_parents" => ("FF_sAV")),
+    Dict("child" => "FF_A", "value_parents" => ("FF_sAV")),
+    Dict("child" => "FF_V", "value_parents" => ("FF_sAV")),
     # Independent
-    Dict("child" => "xA", "value_parents" => ("Ind_sA")),
-    Dict("child" => "xV", "value_parents" => ("Ind_sV")),
-    # Cause
-    Dict("child" => "xC", "value_parents" => ("C")),
+    Dict("child" => "Seg_A", "value_parents" => ("Seg_sA")),
+    Dict("child" => "Seg_V", "value_parents" => ("Seg_sV")),
+
 ]
 
 
@@ -75,39 +75,76 @@ print( get_states(hgf) )
 
 get_surprise(hgf)
 
-function merging_hgf(agent::Agent, input, constant_cue="A", decision="model_averaging_surprise")
+function merging_hgf(
+    agent::Agent, 
+    input, constant_cue="A", 
+    internal_variables = "clean", 
+    decision="model_averaging_surprise"
+    )
 
-    if length(input) == 3
-        auditory_stimulus = input[1]
-        visual_stimulus = input[2]
-        cue = input[3]
-    else
-        auditory_stimulus = input[1]
-        visual_stimulus = input[2]
-        cue = constant_cue
+    # generate latent noise for the internal variables
+    auditory_latent_noise = randn(1)[1]
+    visual_latent_noise = randn(1)[1]
+
+    if internal_variables == "noisy"
+        if length(input) == 5
+            FF_auditory_stimulus = input[1] * auditory_latent_noise
+            FF_visual_stimulus = input[2] * visual_latent_noise
+
+            Seg_auditory_stimulus = input[3] * auditory_latent_noise
+            Seg_visual_stimulus = input[4] * visual_latent_noise
+
+            cue = input[5]
+        else
+            FF_auditory_stimulus = input[1] * auditory_latent_noise
+            FF_visual_stimulus = input[2] * visual_latent_noise
+
+            Seg_auditory_stimulus = input[3] * auditory_latent_noise
+            Seg_visual_stimulus = input[4] * visual_latent_noise
+
+            cue = constant_cue
+        end
+    elseif internal_variables == "clean"
+        if length(input) == 5
+            FF_auditory_stimulus = input[1]
+            FF_visual_stimulus = input[2]
+
+            Seg_auditory_stimulus = input[3]
+            Seg_visual_stimulus = input[4]
+
+            cue = input[5]
+        else
+            FF_auditory_stimulus = input[1]
+            FF_visual_stimulus = input[2]
+
+            Seg_auditory_stimulus = input[3]
+            Seg_visual_stimulus = input[4]
+
+            cue = constant_cue
+        end
     end
 
     action_noise = agent.parameters["action_noise"]
-    prior_common_cause = agent.parameters["p_common"]
+    prior_common = agent.parameters["p_common"]
 
     hgf = agent.substruct
 
     # update HGF with inputs
-    update_hgf!(hgf, [auditory_stimulus, visual_stimulus])
+    update_hgf!(hgf, [FF_auditory_stimulus, FF_visual_stimulus, Seg_auditory_stimulus, Seg_visual_stimulus])
 
     # Forced Fusion (Common Cause)
     FF_inferred_location = get_states(hgf, ("FF_sAV", "posterior_mean"))
 
-    FF_action_distribution = Normal(FF_inferred_location, action_noise)
+    ###FF_action_distribution = Normal(FF_inferred_location, action_noise)
 
     # Segregation (Independent Causes)
     if cue == "A"
-        Ind_inferred_location = get_states(hgf, ("Ind_sA", "posterior_mean"))
+        Ind_inferred_location = get_states(hgf, ("Seg_sA", "posterior_mean"))
     elseif cue == "V"
-        Ind_inferred_location = get_states(hgf, ("Ind_sV", "posterior_mean"))
+        Ind_inferred_location = get_states(hgf, ("Seg_sV", "posterior_mean"))
     end
 
-    Ind_action_distribution = Normal(Ind_inferred_location, action_noise)
+    ###Ind_action_distribution = Normal(Ind_inferred_location, action_noise)
 
     # CAUSE estimation
     ## calculating likelihoods
@@ -120,26 +157,33 @@ function merging_hgf(agent::Agent, input, constant_cue="A", decision="model_aver
  =#
 
     ## Model Averaging using surprise
-    surprise_common_cause = get_surprise(hgf, ("xA"))
-    
-    surpriseA_independent = get_surprise(hgf, ("xA"))
-    surpriseV_independent = get_surprise(hgf, ("xV"))
+    surpriseA_common_cause = get_surprise(hgf, ("FF_A"))
+    surpriseV_common_cause = get_surprise(hgf, ("FF_V"))
+    surprise_common_cause = surpriseA_common_cause + surpriseV_common_cause
+
+    surpriseA_independent = get_surprise(hgf, ("Seg_A"))
+    surpriseV_independent = get_surprise(hgf, ("Seg_V"))
     surprise_independent = surpriseA_independent + surpriseV_independent
 
-    
-    posterior_common = exp(surprise_common_cause) * prior_common_cause
-    posterior_independent = exp(surprise_independent) * (1 - prior_common_cause)
-    posterior_C = posterior_common / ( posterior_common + posterior_independent )
-    
+    soft_array = [-surprise_common_cause, -surprise_independent]
+    softmax = softmax!(soft_array)
+
+    # I call this posterior even though i haven't multiplied by the prior
+    # I asumme the model accumulates evidence into the suprise information
+    posterior_common = softmax[1]
+    posterior_independent = softmax[2]
+
+    cause_probability_ratio = posterior_common / posterior_independent
 
     # DECISION
     ## Model averaging w. surprise
     if decision == "model_averaging_surprise"
-        sV_hat = posterior_C * FF_inferred_location + (1 - posterior_C) * Ind_inferred_location
-        sA_hat = posterior_C * FF_inferred_location + (1 - posterior_C) * Ind_inferred_location
+        sV_hat = posterior_common * FF_inferred_location + posterior_independent * Ind_inferred_location
+        sA_hat = posterior_common * FF_inferred_location + posterior_independent * Ind_inferred_location
     end
     ## 
 
+    # Generating action
     if cue == "A"
         action = Normal(sA_hat, action_noise)
     elseif cue == "V"
@@ -148,6 +192,7 @@ function merging_hgf(agent::Agent, input, constant_cue="A", decision="model_aver
 
     return action
 end
+
 
 
 
@@ -168,7 +213,6 @@ priors = Dict(
     ("xV", "input_noise") => Normal(-2, 1),
     ("xA", "input_noise") => Normal(-2, 1),
     "action_noise" => LogNormal(0,0.2),
-    "p_common" => Normal(0,1),
 )
 
 # simulate some data
@@ -180,7 +224,7 @@ actions = Array(rand(values, num_samples))
 ## To view the first few samples
 println(actions[1:10])
 # Generate samples of vectors consisting of two values
-inputs = Array( [rand(values, 2) for _ in 1:num_samples] )
+inputs = [[v..., v...] for v in [rand(values, 2) for _ in 1:num_samples]]
 # To view the first few samples
 println(inputs[1:10])
 
@@ -189,10 +233,10 @@ println(inputs[1:10])
 reset!(agent)
 give_inputs!(agent, inputs)
 
-plot_trajectory(agent, "xA")
-plot_trajectory!(agent, "xV")
-plot_trajectory!(agent, "FF_sAV")
-plot_trajectory!(agent, "Ind_sA")
+plot_trajectory(agent, "FF_A")
+plot_trajectory!(agent, "FF_V")
+plot_trajectory!(agent, "Seg_A")
+plot_trajectory!(agent, "Seg_V")
 plot_trajectory!(agent, "Ind_sV")
 plot_trajectory!(agent, "C")
 plot_trajectory!(agent, "action")

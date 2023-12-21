@@ -201,7 +201,7 @@ action_history = get_history(agent, "action")
 
 action_history
 
-# TRYING WITH Dataset
+# REAL DATA
 
 # load in dataset
 dataset = CSV.read("park_and_kayser2023.csv", DataFrame)
@@ -221,6 +221,7 @@ inputs = dataset[:,1]
 
 inputs
 
+# SIMULATIONS
 reset!(agent)
 give_inputs!(agent, inputs)
 
@@ -236,7 +237,7 @@ action_history = get_history(agent, "action")
 
 action_history
 
-# Fitting model with all experiments multilevel
+# Fitting model with all experiments inde
 
 # I try with experiment 1 only
 df_exp1 = dataset[dataset[!, "experiment"] .== "experiment 1", :]
@@ -270,6 +271,7 @@ df_exp1_simulated_actions
 
 CSV.write("df_exp1_simulated_actions.csv", df_exp1_simulated_actions)
 
+# FITTING Parameters
 chains = fit_model(
     agent,
     priors,

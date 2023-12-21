@@ -45,21 +45,47 @@ without using a HGF substruct
 
 # I dont know if i need to convert the sigmas to variances
 
-original_action_model = function(agent::Agent, input, constant_cue = "A", decision = "model_averaging")
+original_action_model = function(
+    agent::Agent, 
+    input, constant_cue = "A", 
+    internal_variables = "clean",
+    decision = "model_averaging", 
+    )
     """ 
     constant_cue can be either "A" or "V" and is used to specify whether the cue is auditory or visual
     decision can be either "model_averaging" or "model_selection" and is used to specify whether the decision rule is model averaging or model selection
     """
 
-    if length(input) == 3
-        auditory_stimulus = input[1] * randn(1) # added random noise
-        visual_stimulus = input[2] * randn(1) # added random noise
-        cue = input[3]
-    else
-        auditory_stimulus = input[1] * randn(1) # added random noise
-        visual_stimulus = input[2] * randn(1) # added random noise 
-        cue = constant_cue
+    # generate noise
+    auditory_latent_noise = randn(1)[1]
+    visual_latent_noise = randn(1)[1]
+
+    if internal_variables == "noisy"
+        if length(input) == 3
+            auditory_stimulus = input[1] * auditory_latent_noise
+            visual_stimulus = input[2] * visual_latent_noise
+
+            cue = input[3]
+        else
+            auditory_stimulus = input[1] * auditory_latent_noise
+            visual_stimulus = input[2] * visual_latent_noise
+
+            cue = constant_cue
+        end
+    elseif internal_variables == "clean"
+        if length(input) == 3
+            auditory_stimulus = input[1]
+            visual_stimulus = input[2]
+
+            cue = input[3]
+        else
+            auditory_stimulus = input[1]
+            visual_stimulus = input[2]
+
+            cue = constant_cue
+        end
     end
+
 
     #Get parameters
     p_common = agent.parameters["p_common"]
@@ -170,7 +196,6 @@ priors = Dict(
     "sigP" => Normal(0, 1),
     "sigA" => Normal(0, 1),
     "sigV" => Normal(0, 1),
-    "muP" => Normal(0, 1),
     "action_noise" => LogNormal(0,0.2),
 )
 # prøv at fit uden muP
@@ -207,29 +232,29 @@ plot_trajectory(agent, "action")
 
 inputs
 
-# REAL DATA
+# FITTING REAL DATA
 
 dataset = CSV.read("park_and_kayser2023.csv", DataFrame)
 
-show(dataset)
-
-dataset[!, "input"] = JSON.parse.(dataset[!, "input"])
-
-typeof(dataset[!,"input"])
-
-typeof(dataset[!,"action"])
-
-inputs = dataset[:,1]
-
-# I try with experiment 1 only
 df_exp1 = dataset[dataset[!, "experiment"] .== "experiment 1", :]
-inputs_exp1 = df_exp1[:,1]
-actions_exp1 = df_exp1[:,2]
 
-reset!(agent)
-give_inputs!(agent, inputs_exp1)
+# Fitting independent group models
 
-plot_trajectory(agent, "action")
+input_cols = [:auditory_location, :visual_location]
+action_cols = [:action]
+independent_group_cols = [:experiment, :subject]
+
+chains = fit_model(
+    agent,
+    priors,
+    df_exp1;
+    input_cols = input_cols,
+    action_cols = action_cols,
+    independent_group_cols = independent_group_cols,
+    n_iterations = 1000,
+    n_cores = 1,
+    n_chains = 2,
+)
 
 agent.history
 
@@ -242,15 +267,15 @@ chains = fit_model(
     n_iterations = 2000,
 )
 
-serialize("bci_fit_19-12-23.jls", chains)
+serialize("bci_fit_21-12-23.jls", chains)
 
 plot(chains)
 
+#----------------
+##NOTES
+#Fitting group level models
 
-
-auditory_input, visual_input
-
-input_cols = [:auditory_input, :visual_input]
+input_cols = [:auditory_location, :visual_location]
 action_cols = [:action]
 independent_group_cols = [:experiment, :participant]
 
@@ -298,10 +323,6 @@ chains = fit_model(
     n_cores = 4,
     n_chains = 2,
 )
-
-
-
-
 
 
 ------
