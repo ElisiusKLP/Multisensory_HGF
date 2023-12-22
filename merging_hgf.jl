@@ -174,7 +174,7 @@ priors = Dict(
 # simulate some data
 values = [-22, -11, 0, 11, 22]
 ## Number of samples
-num_samples = 1000
+num_samples = 300
 ## Generate samples
 actions = Array(rand(values, num_samples))
 ## To view the first few samples
@@ -199,7 +199,22 @@ plot_trajectory!(agent, "action")
 
 action_history = get_history(agent, "action")
 
-action_history
+action_history = action_history[2:length(action_history)]
+length(action_history)
+
+# FIT Simulated data
+
+fit = fit_model(
+    agent,
+    priors,
+    inputs,
+    action_history,
+    n_iterations = 2000,
+)
+
+plot(fit)
+
+plot_parameter_distribution(fit, priors)
 
 # REAL DATA
 
