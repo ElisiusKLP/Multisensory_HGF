@@ -94,17 +94,18 @@ function merging_hgf(
 
         print("posterior_C: $posterior_C")
         
-        soft_array = [-surprise_common_cause, -surprise_independent]
+        #=soft_array = [-surprise_common_cause, -surprise_independent]
         softmax = softmax!(soft_array)
-
-        print("softmax: $softmax")
+        
+        # this output the exact same as the posterior_c
+        print("softmax: $softmax") =#
 
         # I call this posterior even though i haven't multiplied by the prior
         # I asumme the model accumulates evidence into the suprise information
-        posterior_common = softmax[1]
-        posterior_independent = softmax[2]
+        #posterior_common = softmax[1]
+        #posterior_independent = softmax[2]
 
-        cause_probability_ratio = posterior_common / posterior_independent
+        #cause_probability_ratio = posterior_common / posterior_independent
         
         # MODEL AVERAGING
         sV_hat = posterior_common * FF_inferred_location + posterior_independent * Ind_inferred_location
@@ -142,3 +143,4 @@ function merging_hgf(
     
     return action
 end
+
