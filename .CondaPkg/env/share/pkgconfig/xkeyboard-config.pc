@@ -1,0 +1,7 @@
+
+datadir=/work/Multisensory_HGF/.CondaPkg/env/share
+xkb_base=/work/Multisensory_HGF/.CondaPkg/env/share/X11/xkb
+
+Name: XKeyboardConfig
+Description: X Keyboard configuration data
+Version: 2.40

@@ -1,0 +1,12 @@
+prefix=/work/Multisensory_HGF/.CondaPkg/env
+exec_prefix=/work/Multisensory_HGF/.CondaPkg/env
+libdir=/work/Multisensory_HGF/.CondaPkg/env/lib
+includedir=/work/Multisensory_HGF/.CondaPkg/env/include
+
+Name: libpulse-simple
+Description: PulseAudio Simplified Synchronous Client Interface
+Version: 16.1
+Libs: -L${libdir} -lpulse-simple -pthread
+Libs.private: -L${libdir}/pulseaudio -lpulsecommon-16.1
+Cflags: -I${includedir} -D_REENTRANT
+Requires: libpulse

@@ -1,0 +1,3 @@
+
+# ignore large files
+.CondaPkg/env/lib/libLLVM-15.so

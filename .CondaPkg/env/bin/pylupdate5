@@ -1,0 +1,2 @@
+#!/bin/sh
+exec /work/Multisensory_HGF/.CondaPkg/env/bin/python -m PyQt5.pylupdate_main ${1+"$@"}

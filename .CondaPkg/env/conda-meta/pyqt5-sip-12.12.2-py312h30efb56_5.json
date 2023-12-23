@@ -1,0 +1,116 @@
+{
+    "arch": "x86_64",
+    "build": "py312h30efb56_5",
+    "build_number": 5,
+    "build_string": "py312h30efb56_5",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "constrains": [],
+    "depends": [
+        "libgcc-ng >=12",
+        "libstdcxx-ng >=12",
+        "packaging",
+        "python >=3.12.0rc3,<3.13.0a0",
+        "python_abi 3.12.* *_cp312",
+        "sip",
+        "toml"
+    ],
+    "extracted_package_dir": "/home/ucloud/.julia/scratchspaces/0b3b1443-0f03-428d-bdfb-f27f9c1191ea/root/pkgs/pyqt5-sip-12.12.2-py312h30efb56_5",
+    "files": [
+        "lib/python3.12/site-packages/PyQt5/__pycache__/sip.cpython-312.pyc",
+        "lib/python3.12/site-packages/PyQt5/sip.cpython-312-x86_64-linux-gnu.so",
+        "lib/python3.12/site-packages/PyQt5/sip.py",
+        "lib/python3.12/site-packages/PyQt5_sip-12.12.2-py3.12-linux-x86_64.egg-info/PKG-INFO",
+        "lib/python3.12/site-packages/PyQt5_sip-12.12.2-py3.12-linux-x86_64.egg-info/SOURCES.txt",
+        "lib/python3.12/site-packages/PyQt5_sip-12.12.2-py3.12-linux-x86_64.egg-info/dependency_links.txt",
+        "lib/python3.12/site-packages/PyQt5_sip-12.12.2-py3.12-linux-x86_64.egg-info/native_libs.txt",
+        "lib/python3.12/site-packages/PyQt5_sip-12.12.2-py3.12-linux-x86_64.egg-info/not-zip-safe",
+        "lib/python3.12/site-packages/PyQt5_sip-12.12.2-py3.12-linux-x86_64.egg-info/top_level.txt"
+    ],
+    "fn": "pyqt5-sip-12.12.2-py312h30efb56_5.conda",
+    "license": "GPL-3.0-only",
+    "license_family": "GPL",
+    "link": {
+        "source": "/home/ucloud/.julia/scratchspaces/0b3b1443-0f03-428d-bdfb-f27f9c1191ea/root/pkgs/pyqt5-sip-12.12.2-py312h30efb56_5",
+        "type": 1
+    },
+    "md5": "8a2a122dc4fe14d8cff38f1cf426381f",
+    "name": "pyqt5-sip",
+    "package_tarball_full_path": "/home/ucloud/.julia/scratchspaces/0b3b1443-0f03-428d-bdfb-f27f9c1191ea/root/pkgs/pyqt5-sip-12.12.2-py312h30efb56_5.tar.bz2",
+    "paths_data": {
+        "paths": [
+            {
+                "_path": "lib/python3.12/site-packages/PyQt5/__pycache__/sip.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "ab5c9ce4266b834ed688d04969208ce1b82dc671f659cbf4283981d1f9771d03",
+                "sha256_in_prefix": "ab5c9ce4266b834ed688d04969208ce1b82dc671f659cbf4283981d1f9771d03",
+                "size_in_bytes": 894
+            },
+            {
+                "_path": "lib/python3.12/site-packages/PyQt5/sip.cpython-312-x86_64-linux-gnu.so",
+                "path_type": "hardlink",
+                "sha256": "874ef2d86a4ca5503ab51cecc7132031e9d6cc2162985b6559fdf6dd2f723cc2",
+                "sha256_in_prefix": "874ef2d86a4ca5503ab51cecc7132031e9d6cc2162985b6559fdf6dd2f723cc2",
+                "size_in_bytes": 185176
+            },
+            {
+                "_path": "lib/python3.12/site-packages/PyQt5/sip.py",
+                "path_type": "hardlink",
+                "sha256": "9a3427594f48b2e4c151da167eab95e089be935cbcde0586c73eb95ef69694c0",
+                "sha256_in_prefix": "9a3427594f48b2e4c151da167eab95e089be935cbcde0586c73eb95ef69694c0",
+                "size_in_bytes": 429
+            },
+            {
+                "_path": "lib/python3.12/site-packages/PyQt5_sip-12.12.2-py3.12-linux-x86_64.egg-info/PKG-INFO",
+                "path_type": "hardlink",
+                "sha256": "736eacaa089e58c114460e77d77bca69f9e711a2f3cde57fafea18df0d1318ba",
+                "sha256_in_prefix": "736eacaa089e58c114460e77d77bca69f9e711a2f3cde57fafea18df0d1318ba",
+                "size_in_bytes": 504
+            },
+            {
+                "_path": "lib/python3.12/site-packages/PyQt5_sip-12.12.2-py3.12-linux-x86_64.egg-info/SOURCES.txt",
+                "path_type": "hardlink",
+                "sha256": "300e35659d2c1a29b4761c2fe7a9474f232c575a508de819cd5eb5c83625055b",
+                "sha256_in_prefix": "300e35659d2c1a29b4761c2fe7a9474f232c575a508de819cd5eb5c83625055b",
+                "size_in_bytes": 357
+            },
+            {
+                "_path": "lib/python3.12/site-packages/PyQt5_sip-12.12.2-py3.12-linux-x86_64.egg-info/dependency_links.txt",
+                "path_type": "hardlink",
+                "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+                "sha256_in_prefix": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+                "size_in_bytes": 1
+            },
+            {
+                "_path": "lib/python3.12/site-packages/PyQt5_sip-12.12.2-py3.12-linux-x86_64.egg-info/native_libs.txt",
+                "path_type": "hardlink",
+                "sha256": "ee52b63d374f09b2f20bd69df683469ea4947ae553b1c66d93a7b052ccc99a95",
+                "sha256_in_prefix": "ee52b63d374f09b2f20bd69df683469ea4947ae553b1c66d93a7b052ccc99a95",
+                "size_in_bytes": 42
+            },
+            {
+                "_path": "lib/python3.12/site-packages/PyQt5_sip-12.12.2-py3.12-linux-x86_64.egg-info/not-zip-safe",
+                "path_type": "hardlink",
+                "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+                "sha256_in_prefix": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+                "size_in_bytes": 1
+            },
+            {
+                "_path": "lib/python3.12/site-packages/PyQt5_sip-12.12.2-py3.12-linux-x86_64.egg-info/top_level.txt",
+                "path_type": "hardlink",
+                "sha256": "a503b6f07434ed6a350fe486c93a5e002a27d68bb8a84bdae11ff68f8fd2dbfb",
+                "sha256_in_prefix": "a503b6f07434ed6a350fe486c93a5e002a27d68bb8a84bdae11ff68f8fd2dbfb",
+                "size_in_bytes": 6
+            }
+        ],
+        "paths_version": 1
+    },
+    "platform": "linux",
+    "requested_spec": "",
+    "sha256": "c7154e1933360881b99687d580c4b941fb0cc6ad9574762d409a28196ef5e240",
+    "size": 85809,
+    "subdir": "linux-64",
+    "timestamp": 1695418132533,
+    "track_features": "",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/pyqt5-sip-12.12.2-py312h30efb56_5.conda",
+    "version": "12.12.2"
+}

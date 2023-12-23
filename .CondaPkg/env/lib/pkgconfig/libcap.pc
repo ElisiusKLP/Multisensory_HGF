@@ -1,0 +1,11 @@
+prefix=/work/Multisensory_HGF/.CondaPkg/env
+exec_prefix=/work/Multisensory_HGF/.CondaPkg/env
+libdir=/work/Multisensory_HGF/.CondaPkg/env/lib
+includedir=/work/Multisensory_HGF/.CondaPkg/env/include
+
+Name: libcap
+Description: libcap - linux capabilities library
+Version: 2.69
+Libs: -L${libdir} -lcap
+Libs.private: 
+Cflags: -I${includedir}

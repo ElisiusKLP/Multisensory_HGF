@@ -1,0 +1,10 @@
+prefix=/work/Multisensory_HGF/.CondaPkg/env
+exec_prefix=/work/Multisensory_HGF/.CondaPkg/env
+libdir=/work/Multisensory_HGF/.CondaPkg/env/lib
+includedir=/work/Multisensory_HGF/.CondaPkg/env/include
+
+Name: libturbojpeg
+Description: A SIMD-accelerated JPEG codec that provides the TurboJPEG API
+Version: 3.0.0
+Libs: -L${libdir} -lturbojpeg
+Cflags: -I${includedir}

@@ -1,0 +1,16 @@
+#libevent pkg-config source file
+
+prefix=/work/Multisensory_HGF/.CondaPkg/env
+exec_prefix=/work/Multisensory_HGF/.CondaPkg/env
+libdir=/work/Multisensory_HGF/.CondaPkg/env/lib
+includedir=/work/Multisensory_HGF/.CondaPkg/env/include
+
+Name: libevent_openssl
+Description: libevent_openssl adds openssl-based TLS support to libevent
+Version: 2.1.12
+Requires: libevent
+Conflicts:
+Libs: -L${libdir} -levent_openssl
+Libs.private:   -L/work/Multisensory_HGF/.CondaPkg/env/lib/libssl.so -L/work/Multisensory_HGF/.CondaPkg/env/lib/libcrypto.so
+Cflags: -I${includedir} 
+

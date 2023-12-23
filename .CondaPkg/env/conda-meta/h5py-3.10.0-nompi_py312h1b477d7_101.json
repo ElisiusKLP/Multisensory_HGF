@@ -1,0 +1,1233 @@
+{
+    "arch": "x86_64",
+    "build": "nompi_py312h1b477d7_101",
+    "build_number": 101,
+    "build_string": "nompi_py312h1b477d7_101",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "constrains": [],
+    "depends": [
+        "cached-property",
+        "hdf5 >=1.14.3,<1.14.4.0a0",
+        "libgcc-ng >=12",
+        "numpy >=1.26.2,<2.0a0",
+        "python >=3.12,<3.13.0a0",
+        "python_abi 3.12.* *_cp312"
+    ],
+    "extracted_package_dir": "/home/ucloud/.julia/scratchspaces/0b3b1443-0f03-428d-bdfb-f27f9c1191ea/root/pkgs/h5py-3.10.0-nompi_py312h1b477d7_101",
+    "files": [
+        "lib/python3.12/site-packages/h5py-3.10.0.dist-info/INSTALLER",
+        "lib/python3.12/site-packages/h5py-3.10.0.dist-info/LICENSE",
+        "lib/python3.12/site-packages/h5py-3.10.0.dist-info/METADATA",
+        "lib/python3.12/site-packages/h5py-3.10.0.dist-info/RECORD",
+        "lib/python3.12/site-packages/h5py-3.10.0.dist-info/REQUESTED",
+        "lib/python3.12/site-packages/h5py-3.10.0.dist-info/WHEEL",
+        "lib/python3.12/site-packages/h5py-3.10.0.dist-info/direct_url.json",
+        "lib/python3.12/site-packages/h5py-3.10.0.dist-info/top_level.txt",
+        "lib/python3.12/site-packages/h5py/__init__.py",
+        "lib/python3.12/site-packages/h5py/__pycache__/__init__.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/__pycache__/h5py_warnings.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/__pycache__/ipy_completer.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/__pycache__/version.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/_conv.cpython-312-x86_64-linux-gnu.so",
+        "lib/python3.12/site-packages/h5py/_errors.cpython-312-x86_64-linux-gnu.so",
+        "lib/python3.12/site-packages/h5py/_hl/__init__.py",
+        "lib/python3.12/site-packages/h5py/_hl/__pycache__/__init__.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/_hl/__pycache__/attrs.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/_hl/__pycache__/base.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/_hl/__pycache__/compat.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/_hl/__pycache__/dataset.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/_hl/__pycache__/datatype.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/_hl/__pycache__/dims.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/_hl/__pycache__/files.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/_hl/__pycache__/filters.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/_hl/__pycache__/group.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/_hl/__pycache__/selections.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/_hl/__pycache__/selections2.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/_hl/__pycache__/vds.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/_hl/attrs.py",
+        "lib/python3.12/site-packages/h5py/_hl/base.py",
+        "lib/python3.12/site-packages/h5py/_hl/compat.py",
+        "lib/python3.12/site-packages/h5py/_hl/dataset.py",
+        "lib/python3.12/site-packages/h5py/_hl/datatype.py",
+        "lib/python3.12/site-packages/h5py/_hl/dims.py",
+        "lib/python3.12/site-packages/h5py/_hl/files.py",
+        "lib/python3.12/site-packages/h5py/_hl/filters.py",
+        "lib/python3.12/site-packages/h5py/_hl/group.py",
+        "lib/python3.12/site-packages/h5py/_hl/selections.py",
+        "lib/python3.12/site-packages/h5py/_hl/selections2.py",
+        "lib/python3.12/site-packages/h5py/_hl/vds.py",
+        "lib/python3.12/site-packages/h5py/_objects.cpython-312-x86_64-linux-gnu.so",
+        "lib/python3.12/site-packages/h5py/_proxy.cpython-312-x86_64-linux-gnu.so",
+        "lib/python3.12/site-packages/h5py/_selector.cpython-312-x86_64-linux-gnu.so",
+        "lib/python3.12/site-packages/h5py/defs.cpython-312-x86_64-linux-gnu.so",
+        "lib/python3.12/site-packages/h5py/h5.cpython-312-x86_64-linux-gnu.so",
+        "lib/python3.12/site-packages/h5py/h5a.cpython-312-x86_64-linux-gnu.so",
+        "lib/python3.12/site-packages/h5py/h5ac.cpython-312-x86_64-linux-gnu.so",
+        "lib/python3.12/site-packages/h5py/h5d.cpython-312-x86_64-linux-gnu.so",
+        "lib/python3.12/site-packages/h5py/h5ds.cpython-312-x86_64-linux-gnu.so",
+        "lib/python3.12/site-packages/h5py/h5f.cpython-312-x86_64-linux-gnu.so",
+        "lib/python3.12/site-packages/h5py/h5fd.cpython-312-x86_64-linux-gnu.so",
+        "lib/python3.12/site-packages/h5py/h5g.cpython-312-x86_64-linux-gnu.so",
+        "lib/python3.12/site-packages/h5py/h5i.cpython-312-x86_64-linux-gnu.so",
+        "lib/python3.12/site-packages/h5py/h5l.cpython-312-x86_64-linux-gnu.so",
+        "lib/python3.12/site-packages/h5py/h5o.cpython-312-x86_64-linux-gnu.so",
+        "lib/python3.12/site-packages/h5py/h5p.cpython-312-x86_64-linux-gnu.so",
+        "lib/python3.12/site-packages/h5py/h5pl.cpython-312-x86_64-linux-gnu.so",
+        "lib/python3.12/site-packages/h5py/h5py_warnings.py",
+        "lib/python3.12/site-packages/h5py/h5r.cpython-312-x86_64-linux-gnu.so",
+        "lib/python3.12/site-packages/h5py/h5s.cpython-312-x86_64-linux-gnu.so",
+        "lib/python3.12/site-packages/h5py/h5t.cpython-312-x86_64-linux-gnu.so",
+        "lib/python3.12/site-packages/h5py/h5z.cpython-312-x86_64-linux-gnu.so",
+        "lib/python3.12/site-packages/h5py/ipy_completer.py",
+        "lib/python3.12/site-packages/h5py/tests/__init__.py",
+        "lib/python3.12/site-packages/h5py/tests/__pycache__/__init__.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/__pycache__/common.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/__pycache__/conftest.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/__pycache__/test_attribute_create.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/__pycache__/test_attrs.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/__pycache__/test_attrs_data.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/__pycache__/test_base.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/__pycache__/test_big_endian_file.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/__pycache__/test_completions.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/__pycache__/test_dataset.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/__pycache__/test_dataset_getitem.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/__pycache__/test_dataset_swmr.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/__pycache__/test_datatype.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/__pycache__/test_dimension_scales.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/__pycache__/test_dims_dimensionproxy.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/__pycache__/test_dtype.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/__pycache__/test_errors.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/__pycache__/test_file.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/__pycache__/test_file2.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/__pycache__/test_file_alignment.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/__pycache__/test_file_image.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/__pycache__/test_filters.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/__pycache__/test_group.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/__pycache__/test_h5.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/__pycache__/test_h5d_direct_chunk.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/__pycache__/test_h5f.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/__pycache__/test_h5o.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/__pycache__/test_h5p.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/__pycache__/test_h5pl.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/__pycache__/test_h5t.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/__pycache__/test_h5z.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/__pycache__/test_objects.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/__pycache__/test_ros3.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/__pycache__/test_selections.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/__pycache__/test_slicing.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/common.py",
+        "lib/python3.12/site-packages/h5py/tests/conftest.py",
+        "lib/python3.12/site-packages/h5py/tests/data_files/__init__.py",
+        "lib/python3.12/site-packages/h5py/tests/data_files/__pycache__/__init__.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/data_files/vlen_string_dset.h5",
+        "lib/python3.12/site-packages/h5py/tests/data_files/vlen_string_dset_utc.h5",
+        "lib/python3.12/site-packages/h5py/tests/data_files/vlen_string_s390x.h5",
+        "lib/python3.12/site-packages/h5py/tests/test_attribute_create.py",
+        "lib/python3.12/site-packages/h5py/tests/test_attrs.py",
+        "lib/python3.12/site-packages/h5py/tests/test_attrs_data.py",
+        "lib/python3.12/site-packages/h5py/tests/test_base.py",
+        "lib/python3.12/site-packages/h5py/tests/test_big_endian_file.py",
+        "lib/python3.12/site-packages/h5py/tests/test_completions.py",
+        "lib/python3.12/site-packages/h5py/tests/test_dataset.py",
+        "lib/python3.12/site-packages/h5py/tests/test_dataset_getitem.py",
+        "lib/python3.12/site-packages/h5py/tests/test_dataset_swmr.py",
+        "lib/python3.12/site-packages/h5py/tests/test_datatype.py",
+        "lib/python3.12/site-packages/h5py/tests/test_dimension_scales.py",
+        "lib/python3.12/site-packages/h5py/tests/test_dims_dimensionproxy.py",
+        "lib/python3.12/site-packages/h5py/tests/test_dtype.py",
+        "lib/python3.12/site-packages/h5py/tests/test_errors.py",
+        "lib/python3.12/site-packages/h5py/tests/test_file.py",
+        "lib/python3.12/site-packages/h5py/tests/test_file2.py",
+        "lib/python3.12/site-packages/h5py/tests/test_file_alignment.py",
+        "lib/python3.12/site-packages/h5py/tests/test_file_image.py",
+        "lib/python3.12/site-packages/h5py/tests/test_filters.py",
+        "lib/python3.12/site-packages/h5py/tests/test_group.py",
+        "lib/python3.12/site-packages/h5py/tests/test_h5.py",
+        "lib/python3.12/site-packages/h5py/tests/test_h5d_direct_chunk.py",
+        "lib/python3.12/site-packages/h5py/tests/test_h5f.py",
+        "lib/python3.12/site-packages/h5py/tests/test_h5o.py",
+        "lib/python3.12/site-packages/h5py/tests/test_h5p.py",
+        "lib/python3.12/site-packages/h5py/tests/test_h5pl.py",
+        "lib/python3.12/site-packages/h5py/tests/test_h5t.py",
+        "lib/python3.12/site-packages/h5py/tests/test_h5z.py",
+        "lib/python3.12/site-packages/h5py/tests/test_objects.py",
+        "lib/python3.12/site-packages/h5py/tests/test_ros3.py",
+        "lib/python3.12/site-packages/h5py/tests/test_selections.py",
+        "lib/python3.12/site-packages/h5py/tests/test_slicing.py",
+        "lib/python3.12/site-packages/h5py/tests/test_vds/__init__.py",
+        "lib/python3.12/site-packages/h5py/tests/test_vds/__pycache__/__init__.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/test_vds/__pycache__/test_highlevel_vds.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/test_vds/__pycache__/test_lowlevel_vds.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/test_vds/__pycache__/test_virtual_source.cpython-312.pyc",
+        "lib/python3.12/site-packages/h5py/tests/test_vds/test_highlevel_vds.py",
+        "lib/python3.12/site-packages/h5py/tests/test_vds/test_lowlevel_vds.py",
+        "lib/python3.12/site-packages/h5py/tests/test_vds/test_virtual_source.py",
+        "lib/python3.12/site-packages/h5py/utils.cpython-312-x86_64-linux-gnu.so",
+        "lib/python3.12/site-packages/h5py/version.py"
+    ],
+    "fn": "h5py-3.10.0-nompi_py312h1b477d7_101.conda",
+    "license": "BSD-3-Clause",
+    "link": {
+        "source": "/home/ucloud/.julia/scratchspaces/0b3b1443-0f03-428d-bdfb-f27f9c1191ea/root/pkgs/h5py-3.10.0-nompi_py312h1b477d7_101",
+        "type": 1
+    },
+    "md5": "34309b7b11596a76715c9fb84c290b7b",
+    "name": "h5py",
+    "package_tarball_full_path": "/home/ucloud/.julia/scratchspaces/0b3b1443-0f03-428d-bdfb-f27f9c1191ea/root/pkgs/h5py-3.10.0-nompi_py312h1b477d7_101.tar.bz2",
+    "paths_data": {
+        "paths": [
+            {
+                "_path": "lib/python3.12/site-packages/h5py-3.10.0.dist-info/INSTALLER",
+                "path_type": "hardlink",
+                "sha256": "d0edee15f91b406f3f99726e44eb990be6e34fd0345b52b910c568e0eef6a2a8",
+                "sha256_in_prefix": "d0edee15f91b406f3f99726e44eb990be6e34fd0345b52b910c568e0eef6a2a8",
+                "size_in_bytes": 5
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py-3.10.0.dist-info/LICENSE",
+                "path_type": "hardlink",
+                "sha256": "e574b296655cfb0ca5180ec6eee3c95d122b0906736d3ca7e3ce19e0f297f0c9",
+                "sha256_in_prefix": "e574b296655cfb0ca5180ec6eee3c95d122b0906736d3ca7e3ce19e0f297f0c9",
+                "size_in_bytes": 1520
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py-3.10.0.dist-info/METADATA",
+                "path_type": "hardlink",
+                "sha256": "a4c087e1c19922649f5932eb1e4b34a2430e7b5ad0938b68ac1b73e3acac7e49",
+                "sha256_in_prefix": "a4c087e1c19922649f5932eb1e4b34a2430e7b5ad0938b68ac1b73e3acac7e49",
+                "size_in_bytes": 2474
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py-3.10.0.dist-info/RECORD",
+                "path_type": "hardlink",
+                "sha256": "dbe52313ffc310631cba026e43e30efbd0cff9b7b99d4f47e3a482c7c36121d5",
+                "sha256_in_prefix": "dbe52313ffc310631cba026e43e30efbd0cff9b7b99d4f47e3a482c7c36121d5",
+                "size_in_bytes": 11194
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py-3.10.0.dist-info/REQUESTED",
+                "path_type": "hardlink",
+                "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                "sha256_in_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py-3.10.0.dist-info/WHEEL",
+                "path_type": "hardlink",
+                "sha256": "534d96963bacec16b1cb7e473924a3d644e7b56f70920f73c1885776cfff3789",
+                "sha256_in_prefix": "534d96963bacec16b1cb7e473924a3d644e7b56f70920f73c1885776cfff3789",
+                "size_in_bytes": 105
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py-3.10.0.dist-info/direct_url.json",
+                "path_type": "hardlink",
+                "sha256": "2f1aa7f01c652b71ceb9df2acfa7883d5ff01bb05bd19365d403d53d0c706fca",
+                "sha256_in_prefix": "2f1aa7f01c652b71ceb9df2acfa7883d5ff01bb05bd19365d403d53d0c706fca",
+                "size_in_bytes": 100
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py-3.10.0.dist-info/top_level.txt",
+                "path_type": "hardlink",
+                "sha256": "7ceec1b1a6b4177371e9d8c4ac209b4b0e3e13bac114c5ab0554c62c433150c8",
+                "sha256_in_prefix": "7ceec1b1a6b4177371e9d8c4ac209b4b0e3e13bac114c5ab0554c62c433150c8",
+                "size_in_bytes": 5
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/__init__.py",
+                "path_type": "hardlink",
+                "sha256": "23f92661084bd227615659414618fdf655e0558ff7ce1a739f4353b93899776a",
+                "sha256_in_prefix": "23f92661084bd227615659414618fdf655e0558ff7ce1a739f4353b93899776a",
+                "size_in_bytes": 3662
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/__pycache__/__init__.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "1c4b359147510dc6b58a4e069de6afee277e82a777c0a69f38adfa784fcb9f98",
+                "sha256_in_prefix": "1c4b359147510dc6b58a4e069de6afee277e82a777c0a69f38adfa784fcb9f98",
+                "size_in_bytes": 4067
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/__pycache__/h5py_warnings.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "562a794125395a18493e379bb2b865ee7d9e2f84b9bce8cbe611b38d9fa9c4a8",
+                "sha256_in_prefix": "562a794125395a18493e379bb2b865ee7d9e2f84b9bce8cbe611b38d9fa9c4a8",
+                "size_in_bytes": 661
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/__pycache__/ipy_completer.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "ced123ac2ebaee3c3d59eb060a3c3afcc01ca3c21b10dbf04f2be920dcc6e6fe",
+                "sha256_in_prefix": "ced123ac2ebaee3c3d59eb060a3c3afcc01ca3c21b10dbf04f2be920dcc6e6fe",
+                "size_in_bytes": 5430
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/__pycache__/version.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "5192708f7a2ac1f84d98f49104dcd582e94b481d6ebe16f1095143b89bff2572",
+                "sha256_in_prefix": "5192708f7a2ac1f84d98f49104dcd582e94b481d6ebe16f1095143b89bff2572",
+                "size_in_bytes": 1985
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/_conv.cpython-312-x86_64-linux-gnu.so",
+                "path_type": "hardlink",
+                "sha256": "35e4163ec78d8043f0630bf5c5dad578d9f83f70894b6d6c4dd963b8cddefbaf",
+                "sha256_in_prefix": "35e4163ec78d8043f0630bf5c5dad578d9f83f70894b6d6c4dd963b8cddefbaf",
+                "size_in_bytes": 234432
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/_errors.cpython-312-x86_64-linux-gnu.so",
+                "path_type": "hardlink",
+                "sha256": "3a36a4c512255e474add2d1500aa2505ec3d420c425578797407d981e11b272c",
+                "sha256_in_prefix": "3a36a4c512255e474add2d1500aa2505ec3d420c425578797407d981e11b272c",
+                "size_in_bytes": 64904
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/_hl/__init__.py",
+                "path_type": "hardlink",
+                "sha256": "47ab22656040a51986ace9318bc90d2b16741dca7632278cfb41015b06e9eef7",
+                "sha256_in_prefix": "47ab22656040a51986ace9318bc90d2b16741dca7632278cfb41015b06e9eef7",
+                "size_in_bytes": 457
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/_hl/__pycache__/__init__.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "31e37501a2dfb436ba7dd008d605b24684d27d7cd0349dc656c511ff210417bd",
+                "sha256_in_prefix": "31e37501a2dfb436ba7dd008d605b24684d27d7cd0349dc656c511ff210417bd",
+                "size_in_bytes": 345
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/_hl/__pycache__/attrs.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "33b5b2627110c4459c5f041243a683354663e33a1dfa620864af0b7fdd39f6c8",
+                "sha256_in_prefix": "33b5b2627110c4459c5f041243a683354663e33a1dfa620864af0b7fdd39f6c8",
+                "size_in_bytes": 11409
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/_hl/__pycache__/base.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "cfc7aeb38cf298085016c0f40357087ba9273ca172570265909a170448de7794",
+                "sha256_in_prefix": "cfc7aeb38cf298085016c0f40357087ba9273ca172570265909a170448de7794",
+                "size_in_bytes": 23707
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/_hl/__pycache__/compat.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "f2eee9c474ab3f999213a290d639a299f3872e79ca686c4322a29c6a99722806",
+                "sha256_in_prefix": "f2eee9c474ab3f999213a290d639a299f3872e79ca686c4322a29c6a99722806",
+                "size_in_bytes": 1908
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/_hl/__pycache__/dataset.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "84e4995242f64a5bb9faa14d653c50af5b676fbf3c1bcb9132e72486085eb700",
+                "sha256_in_prefix": "84e4995242f64a5bb9faa14d653c50af5b676fbf3c1bcb9132e72486085eb700",
+                "size_in_bytes": 52197
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/_hl/__pycache__/datatype.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "3b609e84967dd5d805fb098356260905f7bced6738c1f8c83df83555815ec60e",
+                "sha256_in_prefix": "3b609e84967dd5d805fb098356260905f7bced6738c1f8c83df83555815ec60e",
+                "size_in_bytes": 2190
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/_hl/__pycache__/dims.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "96c0f5d27fde44f2d5df63ef6fffcd22b2b35324838ca00386f9bd64df8eeaeb",
+                "sha256_in_prefix": "96c0f5d27fde44f2d5df63ef6fffcd22b2b35324838ca00386f9bd64df8eeaeb",
+                "size_in_bytes": 9119
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/_hl/__pycache__/files.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "f2775e3d7b12dfaa2407d8052aa2bf9bf50fb3e9890d6b936600bba24273d73f",
+                "sha256_in_prefix": "f2775e3d7b12dfaa2407d8052aa2bf9bf50fb3e9890d6b936600bba24273d73f",
+                "size_in_bytes": 28973
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/_hl/__pycache__/filters.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "3f595e2710fc3f1071969dcdb615c196ffdd31892128e21db97d5398e6905684",
+                "sha256_in_prefix": "3f595e2710fc3f1071969dcdb615c196ffdd31892128e21db97d5398e6905684",
+                "size_in_bytes": 14853
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/_hl/__pycache__/group.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "14960e90706475ad1f5ac6792cf2243b98afa897416f10e69feedcd2cef5f398",
+                "sha256_in_prefix": "14960e90706475ad1f5ac6792cf2243b98afa897416f10e69feedcd2cef5f398",
+                "size_in_bytes": 34979
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/_hl/__pycache__/selections.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "181ac307cd1b1aea6dce7d8b1ec94ff49d3a5f2bb4d47e0330e1b924da46ea42",
+                "sha256_in_prefix": "181ac307cd1b1aea6dce7d8b1ec94ff49d3a5f2bb4d47e0330e1b924da46ea42",
+                "size_in_bytes": 20073
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/_hl/__pycache__/selections2.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "8cbbafaa60a80549b2cf957d8beb38fbb02abcb20ebc3704a0dd0388988d7fed",
+                "sha256_in_prefix": "8cbbafaa60a80549b2cf957d8beb38fbb02abcb20ebc3704a0dd0388988d7fed",
+                "size_in_bytes": 3581
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/_hl/__pycache__/vds.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "bc3df1674010c159e2872127cbe041bdf63f38520c649c76dcd3c661faf4fac0",
+                "sha256_in_prefix": "bc3df1674010c159e2872127cbe041bdf63f38520c649c76dcd3c661faf4fac0",
+                "size_in_bytes": 11202
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/_hl/attrs.py",
+                "path_type": "hardlink",
+                "sha256": "c2e4141dad1f8fff6aa88ceeeede09555a2d1680073493e982ed38ca7dab6518",
+                "sha256_in_prefix": "c2e4141dad1f8fff6aa88ceeeede09555a2d1680073493e982ed38ca7dab6518",
+                "size_in_bytes": 10221
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/_hl/base.py",
+                "path_type": "hardlink",
+                "sha256": "4b9ebdf550ec131544106d63701837a87229eaa9c620ee45067f9f18e81a3ffb",
+                "sha256_in_prefix": "4b9ebdf550ec131544106d63701837a87229eaa9c620ee45067f9f18e81a3ffb",
+                "size_in_bytes": 15788
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/_hl/compat.py",
+                "path_type": "hardlink",
+                "sha256": "7e3a835f2ae1cabb4b4d2dac2149bbd41ef73438d23607b66ef129c539473d97",
+                "sha256_in_prefix": "7e3a835f2ae1cabb4b4d2dac2149bbd41ef73438d23607b66ef129c539473d97",
+                "size_in_bytes": 1375
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/_hl/dataset.py",
+                "path_type": "hardlink",
+                "sha256": "c982df0dea8dd1b5dd53855fd69b9559e1c08733c24be231d77bef5b22e1fab2",
+                "sha256_in_prefix": "c982df0dea8dd1b5dd53855fd69b9559e1c08733c24be231d77bef5b22e1fab2",
+                "size_in_bytes": 41549
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/_hl/datatype.py",
+                "path_type": "hardlink",
+                "sha256": "fa4221e476bd2b6d552ea22752667a4997576a0d72bf2a37d0ca60b0cdc7d0fd",
+                "sha256_in_prefix": "fa4221e476bd2b6d552ea22752667a4997576a0d72bf2a37d0ca60b0cdc7d0fd",
+                "size_in_bytes": 1548
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/_hl/dims.py",
+                "path_type": "hardlink",
+                "sha256": "4436f4f80d512fd7a8826f952392d550c57cfde9f6c9d4801d8ea0f3e990a1c2",
+                "sha256_in_prefix": "4436f4f80d512fd7a8826f952392d550c57cfde9f6c9d4801d8ea0f3e990a1c2",
+                "size_in_bytes": 5128
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/_hl/files.py",
+                "path_type": "hardlink",
+                "sha256": "ff3c72fffdae5e4e0227d3c66d6e4faaa0df95c7e6476f498368021666949790",
+                "sha256_in_prefix": "ff3c72fffdae5e4e0227d3c66d6e4faaa0df95c7e6476f498368021666949790",
+                "size_in_bytes": 23584
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/_hl/filters.py",
+                "path_type": "hardlink",
+                "sha256": "d8cba0e78ebc7a0a3a9db0d9d20025dd1279c1c994264414c6dbeceeb0591d48",
+                "sha256_in_prefix": "d8cba0e78ebc7a0a3a9db0d9d20025dd1279c1c994264414c6dbeceeb0591d48",
+                "size_in_bytes": 13874
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/_hl/group.py",
+                "path_type": "hardlink",
+                "sha256": "1216c7cac6210a3f194747c1ccc513fa7400122d4e69eec1dc1f84b0c37c34c0",
+                "sha256_in_prefix": "1216c7cac6210a3f194747c1ccc513fa7400122d4e69eec1dc1f84b0c37c34c0",
+                "size_in_bytes": 27860
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/_hl/selections.py",
+                "path_type": "hardlink",
+                "sha256": "f476c4d112f9c5c0db5708b1d88f8c759decb5f5fd62c145ea88cb081fe20686",
+                "sha256_in_prefix": "f476c4d112f9c5c0db5708b1d88f8c759decb5f5fd62c145ea88cb081fe20686",
+                "size_in_bytes": 14475
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/_hl/selections2.py",
+                "path_type": "hardlink",
+                "sha256": "3dc2b121b4826232ff42b6de087c3cf8c1d60c1c4e9440c6fd41ef3f8681b8a6",
+                "sha256_in_prefix": "3dc2b121b4826232ff42b6de087c3cf8c1d60c1c4e9440c6fd41ef3f8681b8a6",
+                "size_in_bytes": 2723
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/_hl/vds.py",
+                "path_type": "hardlink",
+                "sha256": "d900d516765719b61e1cba5698d749852f62d358a201ff870551af4ff3091130",
+                "sha256_in_prefix": "d900d516765719b61e1cba5698d749852f62d358a201ff870551af4ff3091130",
+                "size_in_bytes": 9381
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/_objects.cpython-312-x86_64-linux-gnu.so",
+                "path_type": "hardlink",
+                "sha256": "e216a26072f613c83154ae0b17b79211d55dbd750c68fde3d28e69b0504aff1c",
+                "sha256_in_prefix": "e216a26072f613c83154ae0b17b79211d55dbd750c68fde3d28e69b0504aff1c",
+                "size_in_bytes": 155464
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/_proxy.cpython-312-x86_64-linux-gnu.so",
+                "path_type": "hardlink",
+                "sha256": "2884b2186215a4d985546bf6ac6761525eb8b7d8c196b1082eb53a0478b29abf",
+                "sha256_in_prefix": "2884b2186215a4d985546bf6ac6761525eb8b7d8c196b1082eb53a0478b29abf",
+                "size_in_bytes": 57432
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/_selector.cpython-312-x86_64-linux-gnu.so",
+                "path_type": "hardlink",
+                "sha256": "2e8322cacd49b9d2cd214f093d35537b8884878b81eed28389de4a20d0e52de8",
+                "sha256_in_prefix": "2e8322cacd49b9d2cd214f093d35537b8884878b81eed28389de4a20d0e52de8",
+                "size_in_bytes": 198712
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/defs.cpython-312-x86_64-linux-gnu.so",
+                "path_type": "hardlink",
+                "sha256": "70021c93fbe0dd93661bf0dce743b19f524ac3d667a5c78e243009d82117b5ec",
+                "sha256_in_prefix": "70021c93fbe0dd93661bf0dce743b19f524ac3d667a5c78e243009d82117b5ec",
+                "size_in_bytes": 409736
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/h5.cpython-312-x86_64-linux-gnu.so",
+                "path_type": "hardlink",
+                "sha256": "4ee06061a1e9b6ea63e7ecbe740d9dc1f6efcddcfdf3b296fd4a3b946b3a72c3",
+                "sha256_in_prefix": "4ee06061a1e9b6ea63e7ecbe740d9dc1f6efcddcfdf3b296fd4a3b946b3a72c3",
+                "size_in_bytes": 136432
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/h5a.cpython-312-x86_64-linux-gnu.so",
+                "path_type": "hardlink",
+                "sha256": "98b861a22d41329dc00651603523a301531d2ef206928419b54ed5a95de97322",
+                "sha256_in_prefix": "98b861a22d41329dc00651603523a301531d2ef206928419b54ed5a95de97322",
+                "size_in_bytes": 164088
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/h5ac.cpython-312-x86_64-linux-gnu.so",
+                "path_type": "hardlink",
+                "sha256": "36da801ca442fe09a76864e8192b24badee46418ba2fd501c8b2c77138ca82b2",
+                "sha256_in_prefix": "36da801ca442fe09a76864e8192b24badee46418ba2fd501c8b2c77138ca82b2",
+                "size_in_bytes": 70024
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/h5d.cpython-312-x86_64-linux-gnu.so",
+                "path_type": "hardlink",
+                "sha256": "835e26b2631df0bf4b083f8c190401660e8074ce127421cfc705067a39d13433",
+                "sha256_in_prefix": "835e26b2631df0bf4b083f8c190401660e8074ce127421cfc705067a39d13433",
+                "size_in_bytes": 311200
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/h5ds.cpython-312-x86_64-linux-gnu.so",
+                "path_type": "hardlink",
+                "sha256": "e478346ddd17dd6bb1cae7229aae9b52b7d8be8820428a7253b9ac4f07e9f5d3",
+                "sha256_in_prefix": "e478346ddd17dd6bb1cae7229aae9b52b7d8be8820428a7253b9ac4f07e9f5d3",
+                "size_in_bytes": 94416
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/h5f.cpython-312-x86_64-linux-gnu.so",
+                "path_type": "hardlink",
+                "sha256": "b415d376b3eccdc28a09109a3c1746a77d32965f3c600e757f3e6c782cfae2a9",
+                "sha256_in_prefix": "b415d376b3eccdc28a09109a3c1746a77d32965f3c600e757f3e6c782cfae2a9",
+                "size_in_bytes": 173384
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/h5fd.cpython-312-x86_64-linux-gnu.so",
+                "path_type": "hardlink",
+                "sha256": "74b1b2952524a16eb4187942fab3882b684abf911a31909d8e94d5a9dcaaefc1",
+                "sha256_in_prefix": "74b1b2952524a16eb4187942fab3882b684abf911a31909d8e94d5a9dcaaefc1",
+                "size_in_bytes": 209208
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/h5g.cpython-312-x86_64-linux-gnu.so",
+                "path_type": "hardlink",
+                "sha256": "6dde7863b0d44c832d77a29914ac792463e980b2b01f896a23095bbaf030b1cd",
+                "sha256_in_prefix": "6dde7863b0d44c832d77a29914ac792463e980b2b01f896a23095bbaf030b1cd",
+                "size_in_bytes": 192928
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/h5i.cpython-312-x86_64-linux-gnu.so",
+                "path_type": "hardlink",
+                "sha256": "1f8ab362a9bb1f0c025578825435a5662fe278af61800c1fd91745433dbad2bd",
+                "sha256_in_prefix": "1f8ab362a9bb1f0c025578825435a5662fe278af61800c1fd91745433dbad2bd",
+                "size_in_bytes": 67064
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/h5l.cpython-312-x86_64-linux-gnu.so",
+                "path_type": "hardlink",
+                "sha256": "251abb4914100198190b3bba3e1b87e014e8f46186d710ed41b92e047b8e5e0f",
+                "sha256_in_prefix": "251abb4914100198190b3bba3e1b87e014e8f46186d710ed41b92e047b8e5e0f",
+                "size_in_bytes": 129496
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/h5o.cpython-312-x86_64-linux-gnu.so",
+                "path_type": "hardlink",
+                "sha256": "a2d2958430fa3c7ec68b9fdd9c3e678756e7a051cfa70bbd59e25861894d30f5",
+                "sha256_in_prefix": "a2d2958430fa3c7ec68b9fdd9c3e678756e7a051cfa70bbd59e25861894d30f5",
+                "size_in_bytes": 137840
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/h5p.cpython-312-x86_64-linux-gnu.so",
+                "path_type": "hardlink",
+                "sha256": "81e7bdd01dee6625f498911d7c95c7b016669694ee4151234a02b7e64f13c2e6",
+                "sha256_in_prefix": "81e7bdd01dee6625f498911d7c95c7b016669694ee4151234a02b7e64f13c2e6",
+                "size_in_bytes": 454144
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/h5pl.cpython-312-x86_64-linux-gnu.so",
+                "path_type": "hardlink",
+                "sha256": "591f2aa82eabdda88eaa22bbb7afff089fbdd42f376d6bf6967c3bcd062c7a80",
+                "sha256_in_prefix": "591f2aa82eabdda88eaa22bbb7afff089fbdd42f376d6bf6967c3bcd062c7a80",
+                "size_in_bytes": 44416
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/h5py_warnings.py",
+                "path_type": "hardlink",
+                "sha256": "6cd3eeef058fb75c4b559541fa5a72708a0cbb1d6470d7da29fe0d13bf1d2bdd",
+                "sha256_in_prefix": "6cd3eeef058fb75c4b559541fa5a72708a0cbb1d6470d7da29fe0d13bf1d2bdd",
+                "size_in_bytes": 523
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/h5r.cpython-312-x86_64-linux-gnu.so",
+                "path_type": "hardlink",
+                "sha256": "4e390f448f20247f713becc2799fad6652099b54de774645abc44a19f380b0a2",
+                "sha256_in_prefix": "4e390f448f20247f713becc2799fad6652099b54de774645abc44a19f380b0a2",
+                "size_in_bytes": 80632
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/h5s.cpython-312-x86_64-linux-gnu.so",
+                "path_type": "hardlink",
+                "sha256": "3082f6d01dd09217ec60fbad01762a13a08141093f91b67be4c7c084d6971e97",
+                "sha256_in_prefix": "3082f6d01dd09217ec60fbad01762a13a08141093f91b67be4c7c084d6971e97",
+                "size_in_bytes": 133696
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/h5t.cpython-312-x86_64-linux-gnu.so",
+                "path_type": "hardlink",
+                "sha256": "921051dfb789bd32be19e09363236b14de05064a8c703ceb6759792122d92d51",
+                "sha256_in_prefix": "921051dfb789bd32be19e09363236b14de05064a8c703ceb6759792122d92d51",
+                "size_in_bytes": 481656
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/h5z.cpython-312-x86_64-linux-gnu.so",
+                "path_type": "hardlink",
+                "sha256": "18894cee6e8431d1c1456b5d0450ab02c7955e1d0c5d82b4f7745d0078915a1f",
+                "sha256_in_prefix": "18894cee6e8431d1c1456b5d0450ab02c7955e1d0c5d82b4f7745d0078915a1f",
+                "size_in_bytes": 67960
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/ipy_completer.py",
+                "path_type": "hardlink",
+                "sha256": "74629834adc2137da3c1156b05e52cb1d5d1a1cbb8e559eb03772f2d1a7ed84d",
+                "sha256_in_prefix": "74629834adc2137da3c1156b05e52cb1d5d1a1cbb8e559eb03772f2d1a7ed84d",
+                "size_in_bytes": 3733
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/__init__.py",
+                "path_type": "hardlink",
+                "sha256": "acf3066155b8919a7a802ebda7c540668ac00aba6bd0ba18d3cb397e1a90a5e0",
+                "sha256_in_prefix": "acf3066155b8919a7a802ebda7c540668ac00aba6bd0ba18d3cb397e1a90a5e0",
+                "size_in_bytes": 668
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/__pycache__/__init__.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "b88845ddc5198eb1967459e447dd2e9111565b6737c0b91e02faa38b94b8264f",
+                "sha256_in_prefix": "b88845ddc5198eb1967459e447dd2e9111565b6737c0b91e02faa38b94b8264f",
+                "size_in_bytes": 769
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/__pycache__/common.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "9edbc10ac2ff8037a991340471ce1230c01c877fec5dd6ea503395165c80e449",
+                "sha256_in_prefix": "9edbc10ac2ff8037a991340471ce1230c01c877fec5dd6ea503395165c80e449",
+                "size_in_bytes": 10971
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/__pycache__/conftest.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "b04a8d1d4707a2ae724a95e4707b2d0d7014959c1082b8ae66b41d8927c0da45",
+                "sha256_in_prefix": "b04a8d1d4707a2ae724a95e4707b2d0d7014959c1082b8ae66b41d8927c0da45",
+                "size_in_bytes": 1333
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/__pycache__/test_attribute_create.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "bdd99a139407fdb2c8787ac2fd7542ecab755fc20d39ef1aae4ec2e46b10b962",
+                "sha256_in_prefix": "bdd99a139407fdb2c8787ac2fd7542ecab755fc20d39ef1aae4ec2e46b10b962",
+                "size_in_bytes": 5670
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/__pycache__/test_attrs.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "1aaeb160a85ad69ea2f42c15d5f8101692be4355490621ccfa2033b63b22485f",
+                "sha256_in_prefix": "1aaeb160a85ad69ea2f42c15d5f8101692be4355490621ccfa2033b63b22485f",
+                "size_in_bytes": 21122
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/__pycache__/test_attrs_data.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "d3f404e2c195e5904cc0fd7f8c479c23b8ab9e61f51c3edb2c04505809bab489",
+                "sha256_in_prefix": "d3f404e2c195e5904cc0fd7f8c479c23b8ab9e61f51c3edb2c04505809bab489",
+                "size_in_bytes": 20249
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/__pycache__/test_base.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "f89711a00ac3920be7d39052b7433a74d2a50138fcaf8515d816dc2ac553505f",
+                "sha256_in_prefix": "f89711a00ac3920be7d39052b7433a74d2a50138fcaf8515d816dc2ac553505f",
+                "size_in_bytes": 8023
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/__pycache__/test_big_endian_file.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "dd3751817ccb1b93a3c4bc2000d7d1bdadb4690846e57d2d506327d73b7bddd8",
+                "sha256_in_prefix": "dd3751817ccb1b93a3c4bc2000d7d1bdadb4690846e57d2d506327d73b7bddd8",
+                "size_in_bytes": 2623
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/__pycache__/test_completions.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "7a0c43ed4f87ad2b256bba4c0240896f55df8c928657acf2ad0c052c9815e2f5",
+                "sha256_in_prefix": "7a0c43ed4f87ad2b256bba4c0240896f55df8c928657acf2ad0c052c9815e2f5",
+                "size_in_bytes": 2216
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/__pycache__/test_dataset.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "dbbc76690225448a8bc649e3cf8f31c8cb6f7e129c997b47bd57a80a846a57aa",
+                "sha256_in_prefix": "dbbc76690225448a8bc649e3cf8f31c8cb6f7e129c997b47bd57a80a846a57aa",
+                "size_in_bytes": 138371
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/__pycache__/test_dataset_getitem.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "fe0d8948beae8011e2b517d6a0f6f09e4679b98eea408d6efe9631532b3f3fcb",
+                "sha256_in_prefix": "fe0d8948beae8011e2b517d6a0f6f09e4679b98eea408d6efe9631532b3f3fcb",
+                "size_in_bytes": 38904
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/__pycache__/test_dataset_swmr.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "142c8aad460e6b8eca827f2ccf8f7db000acfc00f9cf00c8d71b718514824eb9",
+                "sha256_in_prefix": "142c8aad460e6b8eca827f2ccf8f7db000acfc00f9cf00c8d71b718514824eb9",
+                "size_in_bytes": 7756
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/__pycache__/test_datatype.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "f4b0e8423f5611684beae970f4318f1ad1bbd6470e549ba233f97fadc46bc4e4",
+                "sha256_in_prefix": "f4b0e8423f5611684beae970f4318f1ad1bbd6470e549ba233f97fadc46bc4e4",
+                "size_in_bytes": 1710
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/__pycache__/test_dimension_scales.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "39145515e8fa969c2e245b82750b977a2c3eeab53de0b272f6a9299b181c2032",
+                "sha256_in_prefix": "39145515e8fa969c2e245b82750b977a2c3eeab53de0b272f6a9299b181c2032",
+                "size_in_bytes": 21010
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/__pycache__/test_dims_dimensionproxy.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "bdbed4585c0669ffcd55c61d8ae974abb890625935472acc4b1b39ebab6df287",
+                "sha256_in_prefix": "bdbed4585c0669ffcd55c61d8ae974abb890625935472acc4b1b39ebab6df287",
+                "size_in_bytes": 940
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/__pycache__/test_dtype.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "2fe1e57af8260614dc091d32d6a3a3e34ac20a9040711a2ab49f7be7e130de95",
+                "sha256_in_prefix": "2fe1e57af8260614dc091d32d6a3a3e34ac20a9040711a2ab49f7be7e130de95",
+                "size_in_bytes": 31378
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/__pycache__/test_errors.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "0df485990b054961cc9f0e35eee0962926578d714205f4e31eb42f7f01d9eeea",
+                "sha256_in_prefix": "0df485990b054961cc9f0e35eee0962926578d714205f4e31eb42f7f01d9eeea",
+                "size_in_bytes": 3500
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/__pycache__/test_file.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "4bc13c704233745b643ab1442726c7c1c4f7500979f124a92b70ba0592a213b0",
+                "sha256_in_prefix": "4bc13c704233745b643ab1442726c7c1c4f7500979f124a92b70ba0592a213b0",
+                "size_in_bytes": 54379
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/__pycache__/test_file2.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "7d0d902c8bdc923f23385fb3226486d606b39bcbdf898fb9a64d6c3fcb85775c",
+                "sha256_in_prefix": "7d0d902c8bdc923f23385fb3226486d606b39bcbdf898fb9a64d6c3fcb85775c",
+                "size_in_bytes": 19678
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/__pycache__/test_file_alignment.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "56546eccafb996a8409352bbac819a34e40dd0b90a5d6af911b3523a542dc884",
+                "sha256_in_prefix": "56546eccafb996a8409352bbac819a34e40dd0b90a5d6af911b3523a542dc884",
+                "size_in_bytes": 3381
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/__pycache__/test_file_image.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "02b0b4cb0458bb18787a1c3d680e6e0c16806954018f74cfb058c09820ea684b",
+                "sha256_in_prefix": "02b0b4cb0458bb18787a1c3d680e6e0c16806954018f74cfb058c09820ea684b",
+                "size_in_bytes": 2232
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/__pycache__/test_filters.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "b701a8e0838b41ecafa911351776bb6a38ad2d0b82da6b2f05dfe965cbe7be14",
+                "sha256_in_prefix": "b701a8e0838b41ecafa911351776bb6a38ad2d0b82da6b2f05dfe965cbe7be14",
+                "size_in_bytes": 4814
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/__pycache__/test_group.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "40160d031ca27caa351f6f1bc72de9942d624c701660e69883ba8bbd9b2bb76b",
+                "sha256_in_prefix": "40160d031ca27caa351f6f1bc72de9942d624c701660e69883ba8bbd9b2bb76b",
+                "size_in_bytes": 70161
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/__pycache__/test_h5.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "b8b73186b70d020aa09cfada5d44faec1a327826b1764f0fc2302f1d86f20fde",
+                "sha256_in_prefix": "b8b73186b70d020aa09cfada5d44faec1a327826b1764f0fc2302f1d86f20fde",
+                "size_in_bytes": 2451
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/__pycache__/test_h5d_direct_chunk.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "db7ba5ce8202f5cf318a056564eac6f872266962d657269888832df1ca3fb93a",
+                "sha256_in_prefix": "db7ba5ce8202f5cf318a056564eac6f872266962d657269888832df1ca3fb93a",
+                "size_in_bytes": 11734
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/__pycache__/test_h5f.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "4208883162248e8b7d616791d7f16f556c803585b36d536aa0c2c5ecebc12a28",
+                "sha256_in_prefix": "4208883162248e8b7d616791d7f16f556c803585b36d536aa0c2c5ecebc12a28",
+                "size_in_bytes": 7601
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/__pycache__/test_h5o.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "3cadbea013a5272cb1b502462da5b6261cfd902780a0155e1b1e1ee05f365cfb",
+                "sha256_in_prefix": "3cadbea013a5272cb1b502462da5b6261cfd902780a0155e1b1e1ee05f365cfb",
+                "size_in_bytes": 1431
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/__pycache__/test_h5p.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "bf4f6da67adddabed1657711cb8bb157c64f5d18b404b8805d63098513850cf8",
+                "sha256_in_prefix": "bf4f6da67adddabed1657711cb8bb157c64f5d18b404b8805d63098513850cf8",
+                "size_in_bytes": 11186
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/__pycache__/test_h5pl.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "59aefae5fb9afb0a5af04ca99a2741460577e08ea5e90c57d6a9fd8daff11312",
+                "sha256_in_prefix": "59aefae5fb9afb0a5af04ca99a2741460577e08ea5e90c57d6a9fd8daff11312",
+                "size_in_bytes": 3304
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/__pycache__/test_h5t.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "5039a17ba756b07d1eb0920cc804206f41cbb6e547548904284b629862e9a503",
+                "sha256_in_prefix": "5039a17ba756b07d1eb0920cc804206f41cbb6e547548904284b629862e9a503",
+                "size_in_bytes": 8397
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/__pycache__/test_h5z.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "0f0a79d4109196d5f49f5dc8beaf47c3c3f7e412b5674ac8605fbd03de03667d",
+                "sha256_in_prefix": "0f0a79d4109196d5f49f5dc8beaf47c3c3f7e412b5674ac8605fbd03de03667d",
+                "size_in_bytes": 2927
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/__pycache__/test_objects.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "b213b0cfaf0017bc17537781907c753d1d9656a11dd8c1362ec4a140b22ac0cf",
+                "sha256_in_prefix": "b213b0cfaf0017bc17537781907c753d1d9656a11dd8c1362ec4a140b22ac0cf",
+                "size_in_bytes": 1540
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/__pycache__/test_ros3.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "30575f2501c8712230fb867362c29699ed0f7f2bc645247e6c7a4eba7db7ba00",
+                "sha256_in_prefix": "30575f2501c8712230fb867362c29699ed0f7f2bc645247e6c7a4eba7db7ba00",
+                "size_in_bytes": 3454
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/__pycache__/test_selections.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "560cce11c037b4c340aecd8d4edd970a4dac31a8f664543d163e66967793c2a6",
+                "sha256_in_prefix": "560cce11c037b4c340aecd8d4edd970a4dac31a8f664543d163e66967793c2a6",
+                "size_in_bytes": 7969
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/__pycache__/test_slicing.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "a471cc1f66ba46c3d5e8ee337fef11901ab76b70d0e85ba70e9b589e27c126a8",
+                "sha256_in_prefix": "a471cc1f66ba46c3d5e8ee337fef11901ab76b70d0e85ba70e9b589e27c126a8",
+                "size_in_bytes": 27380
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/common.py",
+                "path_type": "hardlink",
+                "sha256": "49233700e2b6915c283539181afa31dd3012b06d33903b04936efc5e2e2f0e6d",
+                "sha256_in_prefix": "49233700e2b6915c283539181afa31dd3012b06d33903b04936efc5e2e2f0e6d",
+                "size_in_bytes": 7769
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/conftest.py",
+                "path_type": "hardlink",
+                "sha256": "7afdf12313c1ea0fed0b5527e49ade556781c561269f014de8b97396c090e26d",
+                "sha256_in_prefix": "7afdf12313c1ea0fed0b5527e49ade556781c561269f014de8b97396c090e26d",
+                "size_in_bytes": 547
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/data_files/__init__.py",
+                "path_type": "hardlink",
+                "sha256": "5a0c2f53c6551b4d1937610e3a767b4d8257fcdcc5fc909277b9d210326b6eb1",
+                "sha256_in_prefix": "5a0c2f53c6551b4d1937610e3a767b4d8257fcdcc5fc909277b9d210326b6eb1",
+                "size_in_bytes": 193
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/data_files/__pycache__/__init__.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "3babda780bbbc7390c4522f5bc71e4e476da45db3f157516e9ed47ea0c03493f",
+                "sha256_in_prefix": "3babda780bbbc7390c4522f5bc71e4e476da45db3f157516e9ed47ea0c03493f",
+                "size_in_bytes": 488
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/data_files/vlen_string_dset.h5",
+                "path_type": "hardlink",
+                "sha256": "900f8baf19d3d8c4d1193ac1ac6019ee7774005e85c030af44e6757b38d29793",
+                "sha256_in_prefix": "900f8baf19d3d8c4d1193ac1ac6019ee7774005e85c030af44e6757b38d29793",
+                "size_in_bytes": 6304
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/data_files/vlen_string_dset_utc.h5",
+                "path_type": "hardlink",
+                "sha256": "85b728382b833c1da61627b9a334e22822d5c1cb359fe3ba6f25262af4532f63",
+                "sha256_in_prefix": "85b728382b833c1da61627b9a334e22822d5c1cb359fe3ba6f25262af4532f63",
+                "size_in_bytes": 169904
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/data_files/vlen_string_s390x.h5",
+                "path_type": "hardlink",
+                "sha256": "ea990c68e0371bafab4966f752fa1355b3b9f64360066f6d9daff8f1b7e74ca5",
+                "sha256_in_prefix": "ea990c68e0371bafab4966f752fa1355b3b9f64360066f6d9daff8f1b7e74ca5",
+                "size_in_bytes": 9008
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_attribute_create.py",
+                "path_type": "hardlink",
+                "sha256": "b9aa94a85c2a1408e4c6e05e2dd61df4869683e54464fe56e6e77ec22719bcbf",
+                "sha256_in_prefix": "b9aa94a85c2a1408e4c6e05e2dd61df4869683e54464fe56e6e77ec22719bcbf",
+                "size_in_bytes": 2990
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_attrs.py",
+                "path_type": "hardlink",
+                "sha256": "ab0ea564dbcb4bcfd227db9cf9096fbf46b7ee5f28a63bb90af3afd80fc84912",
+                "sha256_in_prefix": "ab0ea564dbcb4bcfd227db9cf9096fbf46b7ee5f28a63bb90af3afd80fc84912",
+                "size_in_bytes": 9577
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_attrs_data.py",
+                "path_type": "hardlink",
+                "sha256": "3d4f42b8f8cf6d5a2a4384cc823b07d17218e20a433555ffca6c1547b72d8ac4",
+                "sha256_in_prefix": "3d4f42b8f8cf6d5a2a4384cc823b07d17218e20a433555ffca6c1547b72d8ac4",
+                "size_in_bytes": 9768
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_base.py",
+                "path_type": "hardlink",
+                "sha256": "397bd27952369014b3da61a18c74221c589848d59e1d777546cf7dc54b3b7110",
+                "sha256_in_prefix": "397bd27952369014b3da61a18c74221c589848d59e1d777546cf7dc54b3b7110",
+                "size_in_bytes": 3816
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_big_endian_file.py",
+                "path_type": "hardlink",
+                "sha256": "cbc25933d8e5cda23da9b58497b368158e65d227488a25ea312180aa04aa10c0",
+                "sha256_in_prefix": "cbc25933d8e5cda23da9b58497b368158e65d227488a25ea312180aa04aa10c0",
+                "size_in_bytes": 1445
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_completions.py",
+                "path_type": "hardlink",
+                "sha256": "275c1bb429affbdb811134cb33760ae7c437be13625667fd91a20ae4141ae115",
+                "sha256_in_prefix": "275c1bb429affbdb811134cb33760ae7c437be13625667fd91a20ae4141ae115",
+                "size_in_bytes": 1473
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_dataset.py",
+                "path_type": "hardlink",
+                "sha256": "10750f77ed281b96f0c7ee334e91fb785158152ec10b3ba36a256d885beaeb93",
+                "sha256_in_prefix": "10750f77ed281b96f0c7ee334e91fb785158152ec10b3ba36a256d885beaeb93",
+                "size_in_bytes": 73510
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_dataset_getitem.py",
+                "path_type": "hardlink",
+                "sha256": "9da9f52a2c34785671f235b8749e9fbedb713593084dc9f9b43317930b67cf19",
+                "sha256_in_prefix": "9da9f52a2c34785671f235b8749e9fbedb713593084dc9f9b43317930b67cf19",
+                "size_in_bytes": 18721
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_dataset_swmr.py",
+                "path_type": "hardlink",
+                "sha256": "07bb420af332f13eab9ea6cab10cd5058b778b885ed4ecf0f7bdf40382d82df7",
+                "sha256_in_prefix": "07bb420af332f13eab9ea6cab10cd5058b778b885ed4ecf0f7bdf40382d82df7",
+                "size_in_bytes": 3975
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_datatype.py",
+                "path_type": "hardlink",
+                "sha256": "8591843a6bc0474068029d8b4bfade9bf1d570f2d2fe7870cd6df9117bcddd87",
+                "sha256_in_prefix": "8591843a6bc0474068029d8b4bfade9bf1d570f2d2fe7870cd6df9117bcddd87",
+                "size_in_bytes": 1007
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_dimension_scales.py",
+                "path_type": "hardlink",
+                "sha256": "fe5b13f44e13be8780d0d88d220ed2b1c1da2a938f0de11e20a3ef9e3893ffbf",
+                "sha256_in_prefix": "fe5b13f44e13be8780d0d88d220ed2b1c1da2a938f0de11e20a3ef9e3893ffbf",
+                "size_in_bytes": 8117
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_dims_dimensionproxy.py",
+                "path_type": "hardlink",
+                "sha256": "6afa86e60953c0b0c12361da16d88feaea0e238d1748415d1a3a001b1574b8b1",
+                "sha256_in_prefix": "6afa86e60953c0b0c12361da16d88feaea0e238d1748415d1a3a001b1574b8b1",
+                "size_in_bytes": 601
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_dtype.py",
+                "path_type": "hardlink",
+                "sha256": "0a651fee997ecf3750a31c9a6ea17db91730a10895d08bb69ac12d75c305d48c",
+                "sha256_in_prefix": "0a651fee997ecf3750a31c9a6ea17db91730a10895d08bb69ac12d75c305d48c",
+                "size_in_bytes": 17927
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_errors.py",
+                "path_type": "hardlink",
+                "sha256": "7aba38b61ff46090635ec7a9c1f3ba9705cdfed0ba0ff091c81cddad7593fb93",
+                "sha256_in_prefix": "7aba38b61ff46090635ec7a9c1f3ba9705cdfed0ba0ff091c81cddad7593fb93",
+                "size_in_bytes": 2247
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_file.py",
+                "path_type": "hardlink",
+                "sha256": "0d7f1e094b8ac2291f1ad784c8a4d1759ca83f435c137768b86715a7a05fcc69",
+                "sha256_in_prefix": "0d7f1e094b8ac2291f1ad784c8a4d1759ca83f435c137768b86715a7a05fcc69",
+                "size_in_bytes": 30964
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_file2.py",
+                "path_type": "hardlink",
+                "sha256": "bc3ac9a0f0db2dab5a948a50ae7d96ccb2710343960f9076ca5e027d85b752da",
+                "sha256_in_prefix": "bc3ac9a0f0db2dab5a948a50ae7d96ccb2710343960f9076ca5e027d85b752da",
+                "size_in_bytes": 10340
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_file_alignment.py",
+                "path_type": "hardlink",
+                "sha256": "a76ff25d65dad55d45ec8eac67b2230d4d985833debc3511d6cfb8106f582c51",
+                "sha256_in_prefix": "a76ff25d65dad55d45ec8eac67b2230d4d985833debc3511d6cfb8106f582c51",
+                "size_in_bytes": 4404
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_file_image.py",
+                "path_type": "hardlink",
+                "sha256": "d69e232c2e2aaea59bb9c2ca51ea2840ce271cbb0cd148aff5f6078da75d0831",
+                "sha256_in_prefix": "d69e232c2e2aaea59bb9c2ca51ea2840ce271cbb0cd148aff5f6078da75d0831",
+                "size_in_bytes": 1416
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_filters.py",
+                "path_type": "hardlink",
+                "sha256": "4c79f92672356c872ad5a5e558652863bd00817e797a29c3d5a6ba2e9efce08a",
+                "sha256_in_prefix": "4c79f92672356c872ad5a5e558652863bd00817e797a29c3d5a6ba2e9efce08a",
+                "size_in_bytes": 3067
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_group.py",
+                "path_type": "hardlink",
+                "sha256": "e157601d9320253a87f0fbda27d895e9800caebf77d1e2b70f52d04a6e64f425",
+                "sha256_in_prefix": "e157601d9320253a87f0fbda27d895e9800caebf77d1e2b70f52d04a6e64f425",
+                "size_in_bytes": 34967
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_h5.py",
+                "path_type": "hardlink",
+                "sha256": "165619715c713f590860265d4840b7b11ee8ef674f5988946e1c853b4aef37ef",
+                "sha256_in_prefix": "165619715c713f590860265d4840b7b11ee8ef674f5988946e1c853b4aef37ef",
+                "size_in_bytes": 1216
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_h5d_direct_chunk.py",
+                "path_type": "hardlink",
+                "sha256": "f63dd406792ee20a53b79975b046a5c2cd60d74e549d48111d3c954eb2d06495",
+                "sha256_in_prefix": "f63dd406792ee20a53b79975b046a5c2cd60d74e549d48111d3c954eb2d06495",
+                "size_in_bytes": 7885
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_h5f.py",
+                "path_type": "hardlink",
+                "sha256": "4ef492630d86cc5139193d53003095e98e97fc87fe965b2e4011b6ff6b5e7024",
+                "sha256_in_prefix": "4ef492630d86cc5139193d53003095e98e97fc87fe965b2e4011b6ff6b5e7024",
+                "size_in_bytes": 4018
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_h5o.py",
+                "path_type": "hardlink",
+                "sha256": "c1b0e0ea8fa4cc240a8bdec6b7420c04b81c566358c39f44c844b07122186831",
+                "sha256_in_prefix": "c1b0e0ea8fa4cc240a8bdec6b7420c04b81c566358c39f44c844b07122186831",
+                "size_in_bytes": 508
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_h5p.py",
+                "path_type": "hardlink",
+                "sha256": "8308c576cff30afe5cbe86dae32a0dc653ea04fd285b9cb5b2ba3526cc32da47",
+                "sha256_in_prefix": "8308c576cff30afe5cbe86dae32a0dc653ea04fd285b9cb5b2ba3526cc32da47",
+                "size_in_bytes": 6849
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_h5pl.py",
+                "path_type": "hardlink",
+                "sha256": "88e8820b56339eb723275b470df06a82364fed5602b7e8ae5fef21c2d34a6625",
+                "sha256_in_prefix": "88e8820b56339eb723275b470df06a82364fed5602b7e8ae5fef21c2d34a6625",
+                "size_in_bytes": 1792
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_h5t.py",
+                "path_type": "hardlink",
+                "sha256": "6e72c0d70ff9eca68970c1c419a6eb8b3677914f1ff9a63edb08d0316baa2e8c",
+                "sha256_in_prefix": "6e72c0d70ff9eca68970c1c419a6eb8b3677914f1ff9a63edb08d0316baa2e8c",
+                "size_in_bytes": 6582
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_h5z.py",
+                "path_type": "hardlink",
+                "sha256": "6de05d7a7594ab94cc12914058ca291621b8035d14bbbc22b6c15d223ca50c6f",
+                "sha256_in_prefix": "6de05d7a7594ab94cc12914058ca291621b8035d14bbbc22b6c15d223ca50c6f",
+                "size_in_bytes": 1919
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_objects.py",
+                "path_type": "hardlink",
+                "sha256": "620b03044e9b3044849b689267da3b3fc70aa772e82d797aca96bbd29cfb8d08",
+                "sha256_in_prefix": "620b03044e9b3044849b689267da3b3fc70aa772e82d797aca96bbd29cfb8d08",
+                "size_in_bytes": 911
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_ros3.py",
+                "path_type": "hardlink",
+                "sha256": "0f81e2d98cbc3acdb2e2649973fe1acc277d4edfea86dff92416dd8339f0d881",
+                "sha256_in_prefix": "0f81e2d98cbc3acdb2e2649973fe1acc277d4edfea86dff92416dd8339f0d881",
+                "size_in_bytes": 2169
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_selections.py",
+                "path_type": "hardlink",
+                "sha256": "c6ed7d20b6cd5803744650669b15a383a1e5ed0b20f3738e449e23fe42098236",
+                "sha256_in_prefix": "c6ed7d20b6cd5803744650669b15a383a1e5ed0b20f3738e449e23fe42098236",
+                "size_in_bytes": 4852
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_slicing.py",
+                "path_type": "hardlink",
+                "sha256": "ee83e1454ece63c36d1255c8d4f75cf6e199280cf8e7bade14b6a0dacd510dd4",
+                "sha256_in_prefix": "ee83e1454ece63c36d1255c8d4f75cf6e199280cf8e7bade14b6a0dacd510dd4",
+                "size_in_bytes": 13874
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_vds/__init__.py",
+                "path_type": "hardlink",
+                "sha256": "da69c72213807633158c7423069f551432df96d3c4391d366a8675c93254e616",
+                "sha256_in_prefix": "da69c72213807633158c7423069f551432df96d3c4391d366a8675c93254e616",
+                "size_in_bytes": 103
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_vds/__pycache__/__init__.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "16709b79a870a25e2a6519cdc710279826284546c1bf33f51dabb29180209096",
+                "sha256_in_prefix": "16709b79a870a25e2a6519cdc710279826284546c1bf33f51dabb29180209096",
+                "size_in_bytes": 263
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_vds/__pycache__/test_highlevel_vds.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "4cfd63747151d5d97d340763e80eadd7fdcfa4eb3bf323dd9ca5c3242f3b2270",
+                "sha256_in_prefix": "4cfd63747151d5d97d340763e80eadd7fdcfa4eb3bf323dd9ca5c3242f3b2270",
+                "size_in_bytes": 31121
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_vds/__pycache__/test_lowlevel_vds.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "5fb3ae6131af96877fdb95324ac89d248bb6dab02e5b66d0ba60a6fe2dbe78b6",
+                "sha256_in_prefix": "5fb3ae6131af96877fdb95324ac89d248bb6dab02e5b66d0ba60a6fe2dbe78b6",
+                "size_in_bytes": 17864
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_vds/__pycache__/test_virtual_source.cpython-312.pyc",
+                "path_type": "hardlink",
+                "sha256": "cc8d722002c5c8cadc1bfff355968bb3a33cdc910fdb74d1d737a74481f5cfe9",
+                "sha256_in_prefix": "cc8d722002c5c8cadc1bfff355968bb3a33cdc910fdb74d1d737a74481f5cfe9",
+                "size_in_bytes": 9093
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_vds/test_highlevel_vds.py",
+                "path_type": "hardlink",
+                "sha256": "68c789e86148a09fd178000b12355b4f85a7b248b8174a7d74efaebefcdb204c",
+                "sha256_in_prefix": "68c789e86148a09fd178000b12355b4f85a7b248b8174a7d74efaebefcdb204c",
+                "size_in_bytes": 17262
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_vds/test_lowlevel_vds.py",
+                "path_type": "hardlink",
+                "sha256": "e7eacf4471b7f4236feda69c00878841aeb37435265e9b13bbde490dcc36f32c",
+                "sha256_in_prefix": "e7eacf4471b7f4236feda69c00878841aeb37435265e9b13bbde490dcc36f32c",
+                "size_in_bytes": 11867
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/tests/test_vds/test_virtual_source.py",
+                "path_type": "hardlink",
+                "sha256": "4d83f98b37249182d88151f7aefd381301356dad4dec56e37792c4b2a4aeafe5",
+                "sha256_in_prefix": "4d83f98b37249182d88151f7aefd381301356dad4dec56e37792c4b2a4aeafe5",
+                "size_in_bytes": 6033
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/utils.cpython-312-x86_64-linux-gnu.so",
+                "path_type": "hardlink",
+                "sha256": "f24833e7c3d407335cd0fb9f68d881c6a9710054b786c57c3f5ecd964547c096",
+                "sha256_in_prefix": "f24833e7c3d407335cd0fb9f68d881c6a9710054b786c57c3f5ecd964547c096",
+                "size_in_bytes": 69040
+            },
+            {
+                "_path": "lib/python3.12/site-packages/h5py/version.py",
+                "path_type": "hardlink",
+                "sha256": "0821d510c048d4996df13978ca2ac6da1f15bdde1d54676a49316063db62d8d2",
+                "sha256_in_prefix": "0821d510c048d4996df13978ca2ac6da1f15bdde1d54676a49316063db62d8d2",
+                "size_in_bytes": 1911
+            }
+        ],
+        "paths_version": 1
+    },
+    "platform": "linux",
+    "requested_spec": "",
+    "sha256": "c37a9119ec5ed97dd6e624f83106c8c6f19ccf9326a54b078f84b8aef40e1058",
+    "size": 1235432,
+    "subdir": "linux-64",
+    "timestamp": 1702471586947,
+    "track_features": "",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/h5py-3.10.0-nompi_py312h1b477d7_101.conda",
+    "version": "3.10.0"
+}

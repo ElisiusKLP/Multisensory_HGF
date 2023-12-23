@@ -1,0 +1,48 @@
+{
+    "arch": "x86_64",
+    "build": "default_hb11cfb5_4",
+    "build_number": 4,
+    "build_string": "default_hb11cfb5_4",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "constrains": [],
+    "depends": [
+        "libclang13 15.0.7 default_ha2b6cf4_4",
+        "libgcc-ng >=12",
+        "libllvm15 >=15.0.7,<15.1.0a0",
+        "libstdcxx-ng >=12"
+    ],
+    "extracted_package_dir": "/home/ucloud/.julia/scratchspaces/0b3b1443-0f03-428d-bdfb-f27f9c1191ea/root/pkgs/libclang-15.0.7-default_hb11cfb5_4",
+    "files": [
+        "lib/libclang.so"
+    ],
+    "fn": "libclang-15.0.7-default_hb11cfb5_4.conda",
+    "license": "Apache-2.0 WITH LLVM-exception",
+    "license_family": "Apache",
+    "link": {
+        "source": "/home/ucloud/.julia/scratchspaces/0b3b1443-0f03-428d-bdfb-f27f9c1191ea/root/pkgs/libclang-15.0.7-default_hb11cfb5_4",
+        "type": 1
+    },
+    "md5": "c90f4cbb57839c98fef8f830e4b9972f",
+    "name": "libclang",
+    "package_tarball_full_path": "/home/ucloud/.julia/scratchspaces/0b3b1443-0f03-428d-bdfb-f27f9c1191ea/root/pkgs/libclang-15.0.7-default_hb11cfb5_4.tar.bz2",
+    "paths_data": {
+        "paths": [
+            {
+                "_path": "lib/libclang.so",
+                "path_type": "softlink",
+                "sha256_in_prefix": "240a6053366d2d0b23dc708b1599712b2f8766fafb4b2887b7f047e3bfee0da0",
+                "size_in_bytes": 39912760
+            }
+        ],
+        "paths_version": 1
+    },
+    "platform": "linux",
+    "requested_spec": "",
+    "sha256": "0b80441f222a91074d0e5edb0fbc3b1ce16ca2cdf6ab899721afdcc3a3ff6302",
+    "size": 133384,
+    "subdir": "linux-64",
+    "timestamp": 1701412265788,
+    "track_features": "",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/libclang-15.0.7-default_hb11cfb5_4.conda",
+    "version": "15.0.7"
+}

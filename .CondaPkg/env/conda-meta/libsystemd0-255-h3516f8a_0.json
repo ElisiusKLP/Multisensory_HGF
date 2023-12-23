@@ -1,0 +1,58 @@
+{
+    "arch": "x86_64",
+    "build": "h3516f8a_0",
+    "build_number": 0,
+    "build_string": "h3516f8a_0",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "constrains": [],
+    "depends": [
+        "__glibc >=2.17,<3.0.a0",
+        "libcap >=2.69,<2.70.0a0",
+        "libgcc-ng >=12",
+        "libgcrypt >=1.10.3,<2.0a0",
+        "lz4-c >=1.9.3,<1.10.0a0",
+        "xz >=5.2.6,<6.0a0",
+        "zstd >=1.5.5,<1.6.0a0"
+    ],
+    "extracted_package_dir": "/home/ucloud/.julia/scratchspaces/0b3b1443-0f03-428d-bdfb-f27f9c1191ea/root/pkgs/libsystemd0-255-h3516f8a_0",
+    "files": [
+        "lib/libsystemd.so.0",
+        "lib/libsystemd.so.0.38.0"
+    ],
+    "fn": "libsystemd0-255-h3516f8a_0.conda",
+    "license": "LGPL-2.1-or-later",
+    "link": {
+        "source": "/home/ucloud/.julia/scratchspaces/0b3b1443-0f03-428d-bdfb-f27f9c1191ea/root/pkgs/libsystemd0-255-h3516f8a_0",
+        "type": 1
+    },
+    "md5": "24e2649ebd432e652aa72cfd05f23a8e",
+    "name": "libsystemd0",
+    "package_tarball_full_path": "/home/ucloud/.julia/scratchspaces/0b3b1443-0f03-428d-bdfb-f27f9c1191ea/root/pkgs/libsystemd0-255-h3516f8a_0.tar.bz2",
+    "paths_data": {
+        "paths": [
+            {
+                "_path": "lib/libsystemd.so.0",
+                "path_type": "softlink",
+                "sha256_in_prefix": "7109b15db652566814c79294f77364b304c834b7bcf8a4a8dcdfef04f5206c92",
+                "size_in_bytes": 1095744
+            },
+            {
+                "_path": "lib/libsystemd.so.0.38.0",
+                "path_type": "hardlink",
+                "sha256": "25c77d8ac893b47be423c5ff9b14b2ea6369c3a092d677219e07ed424fbb26a7",
+                "sha256_in_prefix": "7109b15db652566814c79294f77364b304c834b7bcf8a4a8dcdfef04f5206c92",
+                "size_in_bytes": 1095744
+            }
+        ],
+        "paths_version": 1
+    },
+    "platform": "linux",
+    "requested_spec": "",
+    "sha256": "9306eafe761a758e0c2efa92025bfc0684c66ef500efdea4fbe4687b59e8099e",
+    "size": 404326,
+    "subdir": "linux-64",
+    "timestamp": 1701982703751,
+    "track_features": "",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/libsystemd0-255-h3516f8a_0.conda",
+    "version": "255"
+}
