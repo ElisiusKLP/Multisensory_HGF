@@ -12,6 +12,18 @@ using Turing
 using CategoricalArrays
 using Distributed # for parallelization
 
+# Setup workers
+n_cores = 25
+if n_cores > 1
+    addprocs(n_cores, exeflags = "--project")
+    @everywhere @eval using HierarchicalGaussianFiltering
+    @everywhere @eval using ActionModels
+    
+end
+
+# reset workers if they don't want to initialize
+worker_ids = workers()
+rmprocs(worker_ids)
 
 """
 Creating the BCI in action models framework
@@ -43,7 +55,7 @@ without using a HGF substruct
 # xV
 
 # loading in "original_action_model"
-include("$(pwd())/action_functions/bci_action.jl")
+@everywhere include("$(pwd())/action_functions/bci_action.jl")
 
 # If i wanted to save the posterior_C 
 #agent.states["C"] = posterior_C
@@ -73,18 +85,18 @@ original_states = [
 ]
 
 original_states = Dict(
-    "C" => 1,
+    "C" => 0.5,
     "sAV" => 0,
     "sA" => 0,
     "sV" => 0,
 )
 
 priors = Dict(
-    "p_common" => Normal(0,1),
-    "sigP" => lognormal(0, 1),
-    "sigA" => Normal(0, 1),
-    "sigV" => Normal(0, 1),
-    "action_noise" => LogNormal(0,1),
+    "p_common" => Beta(1,1),
+    "sigP" => truncated(Normal(5,1),0,Inf),
+    "sigA" => truncated(Normal(5,1),0,Inf),
+    "sigV" => truncated(Normal(5,1),0,Inf),
+    "action_noise" => truncated(Normal(5,1),0,Inf),
 )
 # prøv at fit uden muP
 # og smallere priors
@@ -122,7 +134,7 @@ inputs
 
 # FITTING REAL DATA
 
-dataset = CSV.read("park_and_kayser2023.csv", DataFrame)
+dataset = CSV.read("$(pwd())/dataset/park_and_kayser2023.csv", DataFrame)
 
 df_exp1 = dataset[dataset[!, "experiment"] .== "experiment 1", :]
 
@@ -130,7 +142,7 @@ df_exp1 = dataset[dataset[!, "experiment"] .== "experiment 1", :]
 
 input_cols = [:auditory_location, :visual_location]
 action_cols = [:action]
-independent_group_cols = [:experiment, :subject]
+independent_group_cols = [:subject]
 
 chains = fit_model(
     agent,
@@ -139,12 +151,30 @@ chains = fit_model(
     input_cols = input_cols,
     action_cols = action_cols,
     independent_group_cols = independent_group_cols,
-    n_iterations = 1000,
-    n_cores = 1,
+    n_iterations = 10000,
+    n_cores = 25,
     n_chains = 2,
 )
 
-agent.history
+serialize("bci_fit6_exp1_23-12-23.jls", chains)
+
+
+## Inspecting results from experiment 1
+xy = chains[String31("participant 1.13")]
+
+plot(xy)
+
+plot_parameter_distribution(xy, priors)
+
+dist = rand(LogNormal(0,3),1000)
+dist[dist .< 200] .= 200
+
+histogram(dist, xlims = [0,100])
+
+dist = rand(truncated(Normal(5,1),0,30),1000)
+dist[dist .< 200] .= 200
+
+histogram(dist, xlims = [0,100])
 
 # Fitting the model to the simulated data
 chains = fit_model(
