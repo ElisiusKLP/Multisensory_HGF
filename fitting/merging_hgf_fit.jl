@@ -3,6 +3,10 @@ Merging HGF
 
 """
 
+# running on ucloud
+cd("/work/Multisensory_HGF")
+Using Pkg
+Pkg.instantiate()
 
 # Packages
 using DataFrames, CSV, TimeSeries, Serialization, JSON
@@ -13,6 +17,24 @@ using Turing
 using CategoricalArrays
 using ForwardDiff
 using NNlib
+using Distributed # for parallelization
+
+# PARRELIZATON
+# reset workers if they don't want to initialize
+if length(workers()) > 1
+    worker_ids = workers()
+    rmprocs(worker_ids)
+    workers()
+end
+# Setup workers
+n_cores = 25
+if n_cores > 1
+    addprocs(n_cores, exeflags = "--project")
+    @everywhere @eval using HierarchicalGaussianFiltering
+    @everywhere @eval using ActionModels
+    
+end
+
 
 "This is for the merging HGF"
 
@@ -63,7 +85,7 @@ hgf = init_hgf(
 )
 
 # load in "merging_hgf_action.jl"
-include("$(pwd())/action_functions/merging_hgf_action")
+@everywhere include("$(pwd())/action_functions/merging_hgf_action_w.reset.jl")
 
 print(get_states(hgf))
 
@@ -73,7 +95,7 @@ agent_parameters = Dict(
 )
 
 agent = init_agent(
-    merging_hgf,
+    merging_hgf_w_reset,
     parameters = agent_parameters,
     substruct = hgf,
 )
@@ -82,7 +104,7 @@ get_parameters(agent)
 
 priors = Dict(
     ("FF_A", "input_noise") => Normal(-2, 1),
-    ("FFV", "input_noise") => Normal(-2, 1),
+    ("FF_V", "input_noise") => Normal(-2, 1),
     ("Seg_A", "input_noise") => Normal(-2, 1),
     ("Seg_V", "input_noise") => Normal(-2, 1),
     "p_common" => Beta(1,1),
@@ -122,7 +144,40 @@ action_history
 
 # fit simulated data
 
-# TRYING WITH Dataset
+# FIT EXP 1
+
+dataset = CSV.read("$(pwd())/dataset/park_and_kayser2023.csv", DataFrame)
+
+dataset[!, :auditory_location2] = dataset[!, :auditory_location]
+dataset[!, :visual_location2] = dataset[!, :visual_location]
+
+df_exp1 = dataset[dataset[!, "experiment"] .== "experiment 1", :]
+
+# Fitting independent group models
+
+# i have to copy location columns as fit_model need unique arrays
+
+input_cols = [:auditory_location, :visual_location, :auditory_location2, :visual_location2]
+action_cols = [:action]
+independent_group_cols = [:subject]
+
+results = fit_model(
+    agent,
+    priors,
+    df_exp1;
+    input_cols = input_cols,
+    action_cols = action_cols,
+    independent_group_cols = independent_group_cols,
+    n_iterations = 10000,
+    n_cores = 25,
+    n_chains = 2,
+)
+
+serialize("merging_fit_exp1_23-12-23.jls", results)
+
+plot(results)
+
+# TRYING WITH DATASET
 
 # load in dataset
 dataset = CSV.read("park_and_kayser2023.csv", DataFrame)

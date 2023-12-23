@@ -2,9 +2,10 @@
 Merging HGF function
 """
 
-function merging_hgf(
+function merging_hgf_w_reset(
     agent::Agent, 
-    input, constant_cue="A", 
+    input, 
+    constant_cue="A", 
     internal_variables = "clean", 
     decision="model_averaging_surprise",
     reset = "no_reset",

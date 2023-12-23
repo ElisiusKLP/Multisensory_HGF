@@ -150,7 +150,7 @@ input_cols = [:auditory_location, :visual_location]
 action_cols = [:action]
 independent_group_cols = [:subject]
 
-chains = fit_model(
+results = fit_model(
     agent,
     priors,
     df_exp1;

@@ -1,4 +1,4 @@
-==> 2023-12-23 17:54:01 <==
+==> 2023-12-23 19:27:23 <==
 # cmd: /home/ucloud/.julia/artifacts/87052ac9aec71548f804b30280151288cb1ed40e/bin/micromamba -r /home/ucloud/.julia/scratchspaces/0b3b1443-0f03-428d-bdfb-f27f9c1191ea/root create -y -p /work/Multisensory_HGF/.CondaPkg/env --override-channels --no-channel-priority arviz[version='>=0.15.0,<0.16.0'] libstdcxx-ng[version='>=3.4,<13.0'] matplotlib[version='>=1'] matplotlib[version='*'] pandas[version='*'] python[version='>=3.7,<4',channel='conda-forge',build='*cpython*'] xarray[version='*'] -c conda-forge
 # conda version: 3.8.0
 +https://conda.anaconda.org/conda-forge/linux-64::libstdcxx-ng-12.3.0-h0f45ef3_3
