@@ -1,0 +1,9 @@
+prefix=/work/Multisensory_HGF/.CondaPkg/env
+includedir=${prefix}/include
+libdir=${prefix}/lib
+
+Name: xkbcommon
+Description: XKB API common to servers and clients
+Version: 1.6.0
+Libs: -L${libdir} -lxkbcommon
+Cflags: -I${includedir}

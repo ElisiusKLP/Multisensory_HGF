@@ -1,0 +1,12 @@
+prefix=/work/Multisensory_HGF/.CondaPkg/env
+exec_prefix=/work/Multisensory_HGF/.CondaPkg/env
+libdir=/work/Multisensory_HGF/.CondaPkg/env/lib
+includedir=/work/Multisensory_HGF/.CondaPkg/env/include
+
+Name: FLAC
+Description: Free Lossless Audio Codec Library
+Version: 1.4.3
+Requires.private: ogg
+Libs: -L${libdir} -lFLAC
+Libs.private: -lm
+Cflags: -I${includedir}

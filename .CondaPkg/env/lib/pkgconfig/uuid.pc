@@ -1,0 +1,11 @@
+prefix=/work/Multisensory_HGF/.CondaPkg/env
+exec_prefix=/work/Multisensory_HGF/.CondaPkg/env
+libdir=/work/Multisensory_HGF/.CondaPkg/env/lib
+includedir=/work/Multisensory_HGF/.CondaPkg/env/include
+
+Name: uuid
+Description: Universally unique id library
+Version: 2.38.1
+Requires:
+Cflags: -I${includedir}/uuid
+Libs: -L${libdir} -luuid

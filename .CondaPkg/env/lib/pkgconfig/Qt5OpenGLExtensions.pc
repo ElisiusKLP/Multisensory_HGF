@@ -1,0 +1,14 @@
+prefix=/work/Multisensory_HGF/.CondaPkg/env
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include/qt
+
+
+Name: Qt5 OpenGLExtensions
+Description: Qt OpenGLExtensions module
+Version: 5.15.8
+Libs: -L${libdir} -lQt5OpenGLExtensions 
+Libs.private: -L/work/Multisensory_HGF/.CondaPkg/env/lib -L/home/conda/feedstock_root/build_artifacts/qt-main_1702347964100/_build_env/x86_64-conda-linux-gnu/sysroot/usr/lib64 -L/home/conda/feedstock_root/build_artifacts/qt-main_1702347964100/_build_env/x86_64-conda-linux-gnu/sysroot/usr/lib /work/Multisensory_HGF/.CondaPkg/env/lib/libQt5Gui.so /work/Multisensory_HGF/.CondaPkg/env/lib/libQt5Core.so -lpthread -L/usr/lib64 -lGL   
+Cflags: -DQT_OPENGLEXTENSIONS_LIB -I${includedir}/QtOpenGLExtensions -I${includedir}
+Requires: Qt5Core Qt5Gui
+

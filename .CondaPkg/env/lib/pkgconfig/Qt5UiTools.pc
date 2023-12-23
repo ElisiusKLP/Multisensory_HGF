@@ -1,0 +1,14 @@
+prefix=/work/Multisensory_HGF/.CondaPkg/env
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include/qt
+
+
+Name: Qt5 UiTools
+Description: Qt UiTools module
+Version: 5.15.8
+Libs: -L${libdir} -lQt5UiTools 
+Libs.private: -L/work/Multisensory_HGF/.CondaPkg/env/lib -L/home/conda/feedstock_root/build_artifacts/qt-main_1702347964100/_build_env/x86_64-conda-linux-gnu/sysroot/usr/lib64 -L/home/conda/feedstock_root/build_artifacts/qt-main_1702347964100/_build_env/x86_64-conda-linux-gnu/sysroot/usr/lib /work/Multisensory_HGF/.CondaPkg/env/lib/libQt5Widgets.so /work/Multisensory_HGF/.CondaPkg/env/lib/libQt5Gui.so /work/Multisensory_HGF/.CondaPkg/env/lib/libQt5Core.so -lpthread /work/Multisensory_HGF/.CondaPkg/env/lib/libQt5Widgets.so /work/Multisensory_HGF/.CondaPkg/env/lib/libQt5Gui.so /work/Multisensory_HGF/.CondaPkg/env/lib/libQt5Core.so -L/usr/lib64 -lGL   
+Cflags: -DQT_UITOOLS_LIB -I${includedir}/QtUiTools -I${includedir}
+Requires: Qt5Core Qt5Gui Qt5Widgets
+

@@ -1,0 +1,66 @@
+{
+    "arch": "x86_64",
+    "build": "hb3ce162_4",
+    "build_number": 4,
+    "build_string": "hb3ce162_4",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "constrains": [],
+    "depends": [
+        "libgcc-ng >=12",
+        "libstdcxx-ng >=12",
+        "libxml2 >=2.12.1,<2.13.0a0",
+        "libzlib >=1.2.13,<1.3.0a0",
+        "zstd >=1.5.5,<1.6.0a0"
+    ],
+    "extracted_package_dir": "/home/ucloud/.julia/scratchspaces/0b3b1443-0f03-428d-bdfb-f27f9c1191ea/root/pkgs/libllvm15-15.0.7-hb3ce162_4",
+    "files": [
+        "lib/libLLVM-15.so",
+        "lib/libLTO.so.15",
+        "lib/libRemarks.so.15"
+    ],
+    "fn": "libllvm15-15.0.7-hb3ce162_4.conda",
+    "license": "Apache-2.0 WITH LLVM-exception",
+    "license_family": "Apache",
+    "link": {
+        "source": "/home/ucloud/.julia/scratchspaces/0b3b1443-0f03-428d-bdfb-f27f9c1191ea/root/pkgs/libllvm15-15.0.7-hb3ce162_4",
+        "type": 1
+    },
+    "md5": "8a35df3cbc0c8b12cc8af9473ae75eef",
+    "name": "libllvm15",
+    "package_tarball_full_path": "/home/ucloud/.julia/scratchspaces/0b3b1443-0f03-428d-bdfb-f27f9c1191ea/root/pkgs/libllvm15-15.0.7-hb3ce162_4.tar.bz2",
+    "paths_data": {
+        "paths": [
+            {
+                "_path": "lib/libLLVM-15.so",
+                "path_type": "hardlink",
+                "sha256": "59d2d061f2457c81136dcd2ab517a50cf96d576c77c57b4c968fd4dbee85b45a",
+                "sha256_in_prefix": "59d2d061f2457c81136dcd2ab517a50cf96d576c77c57b4c968fd4dbee85b45a",
+                "size_in_bytes": 140557696
+            },
+            {
+                "_path": "lib/libLTO.so.15",
+                "path_type": "hardlink",
+                "sha256": "b4cb789c288f58a9e2b37b365d10e2e1a1c247844349b8db3b98d50787f3518b",
+                "sha256_in_prefix": "b4cb789c288f58a9e2b37b365d10e2e1a1c247844349b8db3b98d50787f3518b",
+                "size_in_bytes": 104760
+            },
+            {
+                "_path": "lib/libRemarks.so.15",
+                "path_type": "hardlink",
+                "sha256": "fcb46da7dd880e06d02e48eef55f78336277743db7f3ffa00394fa2779499d1d",
+                "sha256_in_prefix": "fcb46da7dd880e06d02e48eef55f78336277743db7f3ffa00394fa2779499d1d",
+                "size_in_bytes": 15256
+            }
+        ],
+        "paths_version": 1
+    },
+    "platform": "linux",
+    "requested_spec": "",
+    "sha256": "e71584c0f910140630580fdd0a013029a52fd31e435192aea2aa8d29005262d1",
+    "size": 33321457,
+    "subdir": "linux-64",
+    "timestamp": 1701375836233,
+    "track_features": "",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/libllvm15-15.0.7-hb3ce162_4.conda",
+    "version": "15.0.7"
+}

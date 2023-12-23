@@ -1,0 +1,13 @@
+prefix=/work/Multisensory_HGF/.CondaPkg/env
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+modules=1
+
+Name: libXML
+Version: 2.12.3
+Description: libXML library version2.
+Requires.private:  icu-i18n
+Libs: -L${libdir} -lxml2 
+Libs.private:  -L/work/Multisensory_HGF/.CondaPkg/env/lib -lz -L/work/Multisensory_HGF/.CondaPkg/env/lib -llzma  -L/work/Multisensory_HGF/.CondaPkg/env/lib  -lm  
+Cflags: -I${includedir}/libxml2 -I/work/Multisensory_HGF/.CondaPkg/env/include 

@@ -1,0 +1,64 @@
+{
+    "arch": "x86_64",
+    "build": "hca2cd23_6",
+    "build_number": 6,
+    "build_string": "hca2cd23_6",
+    "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+    "constrains": [],
+    "depends": [
+        "libgcc-ng >=12",
+        "libstdcxx-ng >=12",
+        "libzlib >=1.2.13,<1.3.0a0",
+        "mysql-common 8.0.33 hf1915f5_6",
+        "openssl >=3.1.4,<4.0a0",
+        "zstd >=1.5.5,<1.6.0a0"
+    ],
+    "extracted_package_dir": "/home/ucloud/.julia/scratchspaces/0b3b1443-0f03-428d-bdfb-f27f9c1191ea/root/pkgs/mysql-libs-8.0.33-hca2cd23_6",
+    "files": [
+        "lib/libmysqlclient.so",
+        "lib/libmysqlclient.so.21",
+        "lib/libmysqlclient.so.21.2.33"
+    ],
+    "fn": "mysql-libs-8.0.33-hca2cd23_6.conda",
+    "license": "",
+    "link": {
+        "source": "/home/ucloud/.julia/scratchspaces/0b3b1443-0f03-428d-bdfb-f27f9c1191ea/root/pkgs/mysql-libs-8.0.33-hca2cd23_6",
+        "type": 1
+    },
+    "md5": "e87530d1b12dd7f4e0f856dc07358d60",
+    "name": "mysql-libs",
+    "package_tarball_full_path": "/home/ucloud/.julia/scratchspaces/0b3b1443-0f03-428d-bdfb-f27f9c1191ea/root/pkgs/mysql-libs-8.0.33-hca2cd23_6.tar.bz2",
+    "paths_data": {
+        "paths": [
+            {
+                "_path": "lib/libmysqlclient.so",
+                "path_type": "softlink",
+                "sha256_in_prefix": "7c2e9d5cbd9565626bde7a266548410e1cbb9a5a3a287eb31307f20fa9b4a25d",
+                "size_in_bytes": 6963000
+            },
+            {
+                "_path": "lib/libmysqlclient.so.21",
+                "path_type": "softlink",
+                "sha256_in_prefix": "7c2e9d5cbd9565626bde7a266548410e1cbb9a5a3a287eb31307f20fa9b4a25d",
+                "size_in_bytes": 6963000
+            },
+            {
+                "_path": "lib/libmysqlclient.so.21.2.33",
+                "path_type": "hardlink",
+                "sha256": "cd163bc30f5c00647e031210ac390074998a24fab6b0117e280526dfe076d089",
+                "sha256_in_prefix": "7c2e9d5cbd9565626bde7a266548410e1cbb9a5a3a287eb31307f20fa9b4a25d",
+                "size_in_bytes": 6963000
+            }
+        ],
+        "paths_version": 1
+    },
+    "platform": "linux",
+    "requested_spec": "",
+    "sha256": "78c905637dac79b197395065c169d452b8ca2a39773b58e45e23114f1cb6dcdb",
+    "size": 1530126,
+    "subdir": "linux-64",
+    "timestamp": 1698937116126,
+    "track_features": "",
+    "url": "https://conda.anaconda.org/conda-forge/linux-64/mysql-libs-8.0.33-hca2cd23_6.conda",
+    "version": "8.0.33"
+}

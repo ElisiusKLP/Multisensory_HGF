@@ -2,6 +2,8 @@
 Try to run BCI mode_fit
 """
 
+# set wd to subfolder in ucloud
+cd("/work/Multisensory_HGF")
 
 # Packages
 using DataFrames, CSV, TimeSeries, Serialization
@@ -12,6 +14,13 @@ using Turing
 using CategoricalArrays
 using Distributed # for parallelization
 
+workers()
+
+# reset workers if they don't want to initialize
+if length(workers()) > 1
+    worker_ids = workers()
+    rmprocs(worker_ids)
+end
 # Setup workers
 n_cores = 25
 if n_cores > 1
@@ -21,9 +30,6 @@ if n_cores > 1
     
 end
 
-# reset workers if they don't want to initialize
-worker_ids = workers()
-rmprocs(worker_ids)
 
 """
 Creating the BCI in action models framework
@@ -93,10 +99,10 @@ original_states = Dict(
 
 priors = Dict(
     "p_common" => Beta(1,1),
-    "sigP" => truncated(Normal(5,1),0,Inf),
-    "sigA" => truncated(Normal(5,1),0,Inf),
-    "sigV" => truncated(Normal(5,1),0,Inf),
-    "action_noise" => truncated(Normal(5,1),0,Inf),
+    "sigP" => Uniform(0,50),
+    "sigA" => Uniform(0,50),
+    "sigV" => Uniform(0,50),
+    "action_noise" => Uniform(0,50),
 )
 # prøv at fit uden muP
 # og smallere priors
@@ -156,8 +162,11 @@ chains = fit_model(
     n_chains = 2,
 )
 
-serialize("bci_fit6_exp1_23-12-23.jls", chains)
+serialize("bci_fit10_exp1_23-12-23.jls", chains)
 
+#fit9 = deserialize("/work/Multisensory_HGF/chain_saved/bci_fit4_exp1_23-12-23.jls")
+
+chains
 
 ## Inspecting results from experiment 1
 xy = chains[String31("participant 1.13")]
