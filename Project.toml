@@ -1,5 +1,7 @@
 [deps]
 ActionModels = "320cf53b-cc3b-4b34-9a10-0ecb113566a3"
+ArviZ = "131c737c-5715-5e2e-ad31-c244f01c1dc7"
+ArviZPythonPlots = "4a6e88f0-2c8e-11ee-0601-e94153f0eada"
 CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
 CategoricalArrays = "324d7699-5711-5eae-9e2f-1d82baa6b597"
 DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
